@@ -15,7 +15,7 @@ public class FacultyDM {
 	 * @param store
 	 */
 
-	public static void loadSemester(University univ)
+	public static void loadFaculty(University univ)
 	{
 		
 		String fileName ="data/TestDataFaculty.csv";
