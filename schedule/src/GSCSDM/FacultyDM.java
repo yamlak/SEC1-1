@@ -11,11 +11,11 @@ import GSCSPD.University;
 public class FacultyDM {
 
 	/**
-	 * loadUniversity(university) looks for data in the file with given file name. 
+	 * loadFaculty(university) looks for data in the file with given file name. 
 	 * @param store
 	 */
 
-	public static void loadSemester(University univ)
+	public static void loadFaculty(GradSchool gradSchool)
 	{
 		
 		String fileName ="data/TestDataFaculty.csv";
@@ -41,9 +41,9 @@ public class FacultyDM {
 	        		//split data by comma
 		        	token = line.split(",");
 		        	
-		        //	 semester = new Semester(token[0],token[1],token[2]);
+		        	 faculty = new Faculty(token[0],token[1],token[2]);
 		        
-		        //	univ.addSemester(semester);
+		        	gradSchool.addFaculty(faculty);
 		        				        	
 		     }    
 	        // Always close files.
