@@ -41,9 +41,9 @@ public class FacultyDM {
 	        		//split data by comma
 		        	token = line.split(",");
 		        	
-		        //	 semester = new Semester(token[0],token[1],token[2]);
+		        	 faculty = new Faculty(token[0],token[1],token[2]);
 		        
-		        //	univ.addSemester(semester);
+		        	univ.addFaculty(faculty);
 		        				        	
 		     }    
 	        // Always close files.
