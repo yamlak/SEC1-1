@@ -1,3 +1,5 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
@@ -11,9 +13,14 @@ public class Department
 	/**
 	 * name of the department in a graduate school
 	 */
-	private string name;
+	private String name;
+	
+	public void setName(String name)
+	{
+		this.name = name;
+	}
 
-	public string getName()
+	public String getName()
 	{
 		return this.name;
 	}
@@ -22,9 +29,6 @@ public class Department
 	 * 
 	 * @param name
 	 */
-	public void setName(string name)
-	{
-		this.name = name;
-	}
+	
 
 }

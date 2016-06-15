@@ -1,3 +1,5 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
@@ -15,11 +17,11 @@ public class User
 	/**
 	 * a unique number is given for his identity
 	 */
-	private string number;
+	private String number;
 	/**
 	 * authorized password is used by user
 	 */
-	private string password;
+	private String password;
 
 	public String getName()
 	{
@@ -35,7 +37,7 @@ public class User
 		this.name = name;
 	}
 
-	public string getNumber()
+	public String getNumber()
 	{
 		return this.number;
 	}
@@ -44,12 +46,12 @@ public class User
 	 * 
 	 * @param number
 	 */
-	public void setNumber(string number)
+	public void setNumber(String number)
 	{
 		this.number = number;
 	}
 
-	public string getPassword()
+	public String getPassword()
 	{
 		return this.password;
 	}
@@ -58,7 +60,7 @@ public class User
 	 * 
 	 * @param password
 	 */
-	public void setPassword(string password)
+	public void setPassword(String password)
 	{
 		this.password = password;
 	}

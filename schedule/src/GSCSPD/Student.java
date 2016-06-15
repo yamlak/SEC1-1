@@ -1,3 +1,5 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
@@ -11,13 +13,13 @@ public class Student
 	/**
 	 * unique identification number of the student
 	 */
-	private string id;
+	private String id;
 	/**
 	 * name of the student
 	 */
-	private string name;
+	private String name;
 
-	public string getNumber()
+	public String getNumber()
 	{
 		// TODO - implement Student.getNumber
 		throw new UnsupportedOperationException();
@@ -27,13 +29,13 @@ public class Student
 	 * 
 	 * @param number
 	 */
-	public void setNumber(string number)
+	public void setNumber(String number)
 	{
 		// TODO - implement Student.setNumber
 		throw new UnsupportedOperationException();
 	}
 
-	public string getName()
+	public String getName()
 	{
 		return this.name;
 	}
@@ -42,7 +44,7 @@ public class Student
 	 * 
 	 * @param name
 	 */
-	public void setName(string name)
+	public void setName(String name)
 	{
 		this.name = name;
 	}

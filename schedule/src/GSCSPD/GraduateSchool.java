@@ -1,3 +1,5 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
@@ -20,7 +22,7 @@ public class GraduateSchool
 	/**
 	 * A short version of the name
 	 */
-	private string abbreviation;
+	private String abbreviation;
 
 	public String getName()
 	{
@@ -36,7 +38,7 @@ public class GraduateSchool
 		this.name = name;
 	}
 
-	public string getAbbreviation()
+	public String getAbbreviation()
 	{
 		return this.abbreviation;
 	}
@@ -45,9 +47,20 @@ public class GraduateSchool
 	 * 
 	 * @param abbreviation
 	 */
-	public void setAbbreviation(string abbreviation)
+	public void setAbbreviation(String abbreviation)
 	{
 		this.abbreviation = abbreviation;
+	}
+	
+	public GraduateSchool()
+	{
+		
+	}
+	public GraduateSchool(String abbreviation, String name)
+	{
+		this.abbreviation = abbreviation;
+		this.name = name;
+		
 	}
 
 }

@@ -1,3 +1,5 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
@@ -19,11 +21,11 @@ public class Degree
 	/**
 	 * Degree plan consists of different departments. This shows different departments available in this university
 	 */
-	private string department;
+	private String department;
 	/**
 	 * credit hour is a unit that gives weight to the value, level or time requirement of an academic course taken at a educational institution.
 	 */
-	private string track;
+	private String track;
 
 	public String getName()
 	{
@@ -53,7 +55,7 @@ public class Degree
 		this.code = code;
 	}
 
-	public string getDepartment()
+	public String getDepartment()
 	{
 		return this.department;
 	}
@@ -62,12 +64,12 @@ public class Degree
 	 * 
 	 * @param department
 	 */
-	public void setDepartment(string department)
+	public void setDepartment(String department)
 	{
 		this.department = department;
 	}
 
-	public string getHours()
+	public String getHours()
 	{
 		// TODO - implement Degree.getHours
 		throw new UnsupportedOperationException();
@@ -77,7 +79,7 @@ public class Degree
 	 * 
 	 * @param hours
 	 */
-	public void setHours(string hours)
+	public void setHours(String hours)
 	{
 		// TODO - implement Degree.setHours
 		throw new UnsupportedOperationException();

@@ -1,10 +1,12 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
  * giving lists of intended events and times
  */
 public class Schedule
-{
+{/*
 
 	User user;
 	GraduateSchool graduateSchool;
@@ -12,31 +14,31 @@ public class Schedule
 	/**
 	 * a half-year term in a school or college
 	 */
-	private string semester;
+	/*private String semester;
 	/**
 	 * a course is a study of a particular topic offered at university
 	 */
-	private string course;
+	/*private String course;
 	/**
 	 * section number where the course is offered
 	 */
-	private string sectionNumber;
+	/*private Section sectionNumber;
 	/**
 	 * instructors who teach the course
 	 */
-	private string faculty;
+	/*private String faculty;
 	/**
 	 * a limited time period when the course is offered
 	 */
-	private string term;
+	/*private String term;
 	/**
 	 * place where the course is explained
 	 */
-	private string room;
+	/*private string room;
 	/**
 	 * percentage of students filled in a course offered
 	 */
-	private string percentageClassFill;
+	/*private string percentageClassFill;
 
 	public string getSemester()
 	{
@@ -47,7 +49,7 @@ public class Schedule
 	 * 
 	 * @param semester
 	 */
-	public void setSemester(string semester)
+/*	public void setSemester(string semester)
 	{
 		this.semester = semester;
 	}
@@ -61,7 +63,7 @@ public class Schedule
 	 * 
 	 * @param course
 	 */
-	public void setCourse(string course)
+/*	public void setCourse(string course)
 	{
 		this.course = course;
 	}
@@ -75,7 +77,7 @@ public class Schedule
 	 * 
 	 * @param sectionNumber
 	 */
-	public void setSectionNumber(string sectionNumber)
+	/*public void setSectionNumber(string sectionNumber)
 	{
 		this.sectionNumber = sectionNumber;
 	}
@@ -89,7 +91,7 @@ public class Schedule
 	 * 
 	 * @param faculty
 	 */
-	public void setFaculty(string faculty)
+/*	public void setFaculty(string faculty)
 	{
 		this.faculty = faculty;
 	}
@@ -103,7 +105,7 @@ public class Schedule
 	 * 
 	 * @param term
 	 */
-	public void setTerm(string term)
+	/*public void setTerm(string term)
 	{
 		this.term = term;
 	}
@@ -117,7 +119,7 @@ public class Schedule
 	 * 
 	 * @param room
 	 */
-	public void setRoom(string room)
+	/*public void setRoom(string room)
 	{
 		this.room = room;
 	}
@@ -131,12 +133,12 @@ public class Schedule
 	 * 
 	 * @param percentageClassFill
 	 */
-	public void setPercentageClassFill(string percentageClassFill)
+	/*public void setPercentageClassFill(string percentageClassFill)
 	{
 		this.percentageClassFill = percentageClassFill;
 	}
-
-	public void calPercentage()
+*/
+	/*public void calPercentage()
 	{
 		// TODO - implement Schedule.calPercentage
 		throw new UnsupportedOperationException();
@@ -164,10 +166,10 @@ public class Schedule
 	 * 
 	 * @param semester
 	 */
-	public Schedule(Semester semester)
+/*	public Schedule(Semester semester)
 	{
 		// TODO - implement Schedule.Schedule
 		throw new UnsupportedOperationException();
 	}
-
+*/
 }

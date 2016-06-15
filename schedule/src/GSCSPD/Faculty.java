@@ -1,3 +1,5 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
@@ -21,7 +23,7 @@ public class Faculty
 	/**
 	 * title owned by faculty
 	 */
-	private string title;
+	private String title;
 	private String daysToTeach;
 
 	public void operation()
@@ -58,7 +60,7 @@ public class Faculty
 		this.number = number;
 	}
 
-	public string getTitle()
+	public String getTitle()
 	{
 		return this.title;
 	}
@@ -67,7 +69,7 @@ public class Faculty
 	 * 
 	 * @param title
 	 */
-	public void setTitle(string title)
+	public void setTitle(String title)
 	{
 		this.title = title;
 	}
@@ -110,7 +112,7 @@ public class Faculty
 	 * @param schedule
 	 * @param section
 	 */
-	public void canTeachAddSection(Schedule schedule, Sction section)
+	public void canTeachAddSection(Schedule schedule, Section section)
 	{
 		// TODO - implement Faculty.canTeachAddSection
 		throw new UnsupportedOperationException();

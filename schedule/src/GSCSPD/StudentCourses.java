@@ -1,3 +1,7 @@
+package GSCSPD;
+
+import java.util.*;
+
 /**
  * courses taken by students
  */
@@ -10,9 +14,9 @@ public class StudentCourses
 	/**
 	 * student grades in a course
 	 */
-	private string grade;
+	private String grade;
 
-	public string getGrade()
+	public String getGrade()
 	{
 		return this.grade;
 	}
@@ -21,7 +25,7 @@ public class StudentCourses
 	 * 
 	 * @param grade
 	 */
-	public void setGrade(string grade)
+	public void setGrade(String grade)
 	{
 		this.grade = grade;
 	}

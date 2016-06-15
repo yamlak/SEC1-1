@@ -1,3 +1,7 @@
+package GSCSPD;
+
+import java.util.*;
+
 /**
  * a room in which, a class of students is thought
  */
@@ -12,7 +16,7 @@ public class ClassRoom
 	/**
 	 * building where the classroom is located
 	 */
-	private string building;
+	private String building;
 	/**
 	 * maximum number of students fit in a classroom
 	 */
@@ -32,7 +36,7 @@ public class ClassRoom
 		this.number = number;
 	}
 
-	public string getBuilding()
+	public String getBuilding()
 	{
 		return this.building;
 	}
@@ -41,7 +45,7 @@ public class ClassRoom
 	 * 
 	 * @param building
 	 */
-	public void setBuilding(string building)
+	public void setBuilding(String building)
 	{
 		this.building = building;
 	}

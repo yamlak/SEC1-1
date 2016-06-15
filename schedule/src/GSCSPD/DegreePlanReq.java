@@ -1,3 +1,7 @@
+package GSCSPD;
+
+import java.util.*;
+
 /**
  * major and minimum requirements to complete a degree
  */
@@ -17,19 +21,19 @@ public class DegreePlanReq
 	/**
 	 * type of requirement
 	 */
-	private string type;
+	private String type;
 	/**
 	 * courses are mandatory to finish a degree
 	 */
-	private string coreCourse;
+	private String coreCourse;
 	/**
 	 * from a list of electives, courses are chosen by students based on requirement
 	 */
-	private string elective;
+	private String elective;
 	/**
 	 * students take prerequisites on requirement
 	 */
-	private string prerequisites;
+	private String prerequisites;
 
 	public String getName()
 	{
@@ -59,7 +63,7 @@ public class DegreePlanReq
 		this.hours = hours;
 	}
 
-	public string getType()
+	public String getType()
 	{
 		return this.type;
 	}
@@ -68,12 +72,12 @@ public class DegreePlanReq
 	 * 
 	 * @param type
 	 */
-	public void setType(string type)
+	public void setType(String type)
 	{
 		this.type = type;
 	}
 
-	public string getCoreCourse()
+	public String getCoreCourse()
 	{
 		return this.coreCourse;
 	}
@@ -82,12 +86,12 @@ public class DegreePlanReq
 	 * 
 	 * @param coreCourse
 	 */
-	public void setCoreCourse(string coreCourse)
+	public void setCoreCourse(String coreCourse)
 	{
 		this.coreCourse = coreCourse;
 	}
 
-	public string getElective()
+	public String getElective()
 	{
 		return this.elective;
 	}
@@ -96,12 +100,12 @@ public class DegreePlanReq
 	 * 
 	 * @param elective
 	 */
-	public void setElective(string elective)
+	public void setElective(String elective)
 	{
 		this.elective = elective;
 	}
 
-	public string getPrerequisites()
+	public String getPrerequisites()
 	{
 		return this.prerequisites;
 	}
@@ -110,7 +114,7 @@ public class DegreePlanReq
 	 * 
 	 * @param prerequisites
 	 */
-	public void setPrerequisites(string prerequisites)
+	public void setPrerequisites(String prerequisites)
 	{
 		this.prerequisites = prerequisites;
 	}

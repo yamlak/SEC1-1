@@ -1,3 +1,5 @@
+package GSCSPD;
+
 import java.util.*;
 
 /**
@@ -11,9 +13,9 @@ public class facultyAvailability
 	/**
 	 * days faculty available to teach a course
 	 */
-	private string days;
+	private String days;
 
-	public string getDays()
+	public String getDays()
 	{
 		return this.days;
 	}
@@ -22,7 +24,7 @@ public class facultyAvailability
 	 * 
 	 * @param days
 	 */
-	public void setDays(string days)
+	public void setDays(String days)
 	{
 		this.days = days;
 	}

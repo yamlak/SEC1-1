@@ -1,3 +1,7 @@
+package GSCSPD;
+
+import java.util.*;
+
 /**
  * strength of students divided into sections to reduce load
  */
