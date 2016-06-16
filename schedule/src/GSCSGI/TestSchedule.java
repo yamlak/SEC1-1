@@ -18,7 +18,7 @@ public static GraduateSchool gradSchool;
 		
 		
 		// reading data from a csv file
-		  System.out.println("Reading semester from csv :\n");
+		  System.out.println("\n Reading semester from csv :\n");
 		  		 
 		  SemesterDM.loadSemester(myUniversity);
 		  
@@ -26,10 +26,10 @@ public static GraduateSchool gradSchool;
 		  myUniversity.getSemester();
 		  
 		  GradSchoolDM.loadGraduateSchool(myUniversity);
-		  System.out.println("Reading GradSchool from csv :\n");
+		  System.out.println("\n Reading GradSchool from csv :\n");
 		  myUniversity.getGraduateSchool();
 		  
-		  System.out.println("Reading Faculty from csv :\n");
+		  System.out.println("\n Reading Faculty from csv :\n");
 		  FacultyDM.loadFaculty(gradSchool);
 		  gradSchool.getFaculty();
 		  
