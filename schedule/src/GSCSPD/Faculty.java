@@ -88,8 +88,7 @@ public class Faculty
 
 	public Faculty()
 	{
-		// TODO - implement Faculty.Faculty
-		throw new UnsupportedOperationException();
+		
 	}
 
 	/**
@@ -99,10 +98,13 @@ public class Faculty
 	 * @param title
 	 * @param daysToTeach
 	 */
-	public Faculty(String lName, String fname, String title, String daysToTeach)
+	public Faculty(String lName, String fname, String degree, String title, String daysToTeach)
 	{
-		// TODO - implement Faculty.Faculty
-		throw new UnsupportedOperationException();
+		this.lastName = lName;
+		firstName = fname;
+		this.degree = degree;
+		this.title = title;
+		this.daysToTeach = daysToTeach;
 	}
 
 	public String getDaysToTeach()
