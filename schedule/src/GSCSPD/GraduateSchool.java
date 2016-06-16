@@ -62,5 +62,18 @@ public class GraduateSchool
 		this.name = name;
 		
 	}
+	
+	ArrayList<Faculty> faculty = new ArrayList<Faculty>();
+	
+	public void addFaculty(faculty)
+	{
+		this.faculty.add(faculty);
+	}
+	
+	public void getFaculty()
+	{
+		for (Faculty F: faculty)
+		System.out.println(f.getName() + " " + f.get
+	}
 
 }
