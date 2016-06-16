@@ -15,7 +15,7 @@ public class FacultyDM {
 	 * @param store
 	 */
 
-	public static void loadFaculty(GradSchool gradSchool)
+	public static void loadFaculty(GraduateSchool gradSchool)
 	{
 		
 		String fileName ="data/TestDataFaculty.csv";
@@ -41,7 +41,7 @@ public class FacultyDM {
 	        		//split data by comma
 		        	token = line.split(",");
 		        	
-		        	 faculty = new Faculty(token[0],token[1],token[2]);
+		        	faculty = new Faculty(token[0],token[1],token[3], token[4], token[5]);
 		        
 		        	gradSchool.addFaculty(faculty);
 		        				        	

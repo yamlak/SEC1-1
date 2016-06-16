@@ -10,7 +10,7 @@ public class GraduateSchool
 
 	University university;
 	ArrayList<Department> departments;
-	ArrayList<Faculty> faculty;
+	ArrayList<Faculty> faculty = new ArrayList<Faculty>();
 	ArrayList<course> course;
 	ArrayList<Student> students;
 	ArrayList<Degree> degreePlan;
@@ -61,6 +61,19 @@ public class GraduateSchool
 		this.abbreviation = abbreviation;
 		this.name = name;
 		
+	}
+	
+	
+	
+	public void addFaculty(Faculty faculty)
+	{
+		this.faculty.add(faculty);
+	}
+	
+	public void getFaculty()
+	{
+		for (Faculty f: faculty)
+		System.out.println(f.getLastName() + " " + f.getFirstName() + " " + f.getDegree() + " " + f.getTitle() + " "+ f.getDaysToTeach());
 	}
 
 }
