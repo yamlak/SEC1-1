@@ -13,13 +13,14 @@ public class Faculty
 	ArrayList<FacultyLoad> facultyLoad;
 	ArrayList<facultyAvailability> facultyAvailability;
 	/**
-	 * name of the faculty
+	 * last name of the faculty
 	 */
-	private String name;
+	private String lastName;
+	private String firstName;
 	/**
 	 * identity number of the faculty
 	 */
-	private String number;
+	private String number=10000000;
 	/**
 	 * title owned by faculty
 	 */
@@ -32,18 +33,28 @@ public class Faculty
 		throw new UnsupportedOperationException();
 	}
 
-	public String getName()
+	public String getLastName()
 	{
-		return this.name;
+		return this.lastName;
+	}
+	
+	public String getFirstName()
+	{
+		return this.firstName;
 	}
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public void setName(String name)
+	public void setLastName(String name)
 	{
-		this.name = name;
+		this.lastName = name;
+	}
+	
+	public void setFirstName(string name)
+	{
+		this.firstName = name;
 	}
 
 	public String getNumber()
@@ -87,7 +98,7 @@ public class Faculty
 	 * @param title
 	 * @param daysToTeach
 	 */
-	public Faculty(String name, String number, String title, String daysToTeach)
+	public Faculty(String lName, String fname, String title, String daysToTeach)
 	{
 		// TODO - implement Faculty.Faculty
 		throw new UnsupportedOperationException();
