@@ -16,11 +16,11 @@ public static University myUniversity;
 		
 		
 		// reading data from a csv file
-		  System.out.println("Reading semester from csv :");
+		  System.out.println("\n Reading semester from csv :\n");
 		  		 
 		  SemesterDM.loadSemester(myUniversity);
 		  
-		  System.out.println("Reading GradSchool from csv :");
+		  System.out.println("\n Reading GradSchool from csv :\n");
 		  GradSchoolDM.loadGraduateSchool(myUniversity);
 
 		  // display semester data
