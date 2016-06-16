@@ -25,6 +25,7 @@ public class Faculty
 	 * title owned by faculty
 	 */
 	private String title;
+	private String degree;
 	private String daysToTeach;
 
 	public void operation()
@@ -116,6 +117,16 @@ public class Faculty
 	public void setDaysToTeach(String daysToTeach)
 	{
 		this.daysToTeach = daysToTeach;
+	}
+	
+	public String getDegree()
+	{
+		return this.degree;
+	}
+	
+	public void setDegree(String degree)
+	{
+		this.degree = degree;
 	}
 
 	/**
