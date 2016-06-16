@@ -73,7 +73,7 @@ public class GraduateSchool
 	public void getFaculty()
 	{
 		for (Faculty F: faculty)
-		System.out.println(f.getName() + " " + f.get
+		System.out.println(f.getLastName() + " " + f.getFirstName() + " " + f.getDegree() + " " + f.getTitle() + " "+ f.getDaysToTeach())
 	}
 
 }
