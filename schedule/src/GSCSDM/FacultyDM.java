@@ -4,9 +4,6 @@ import GSCSPD.*;
 	
 	import java.io.*;
 
-import GSCSPD.Section;
-import GSCSPD.Semester;
-import GSCSPD.University;
 
 public class FacultyDM {
 
@@ -15,7 +12,7 @@ public class FacultyDM {
 	 * @param store
 	 */
 
-	public static void loadFaculty(GradSchool gradSchool)
+	public static void loadFaculty(GraduateSchool gradSchool)
 	{
 		
 		String fileName ="data/TestDataFaculty.csv";
