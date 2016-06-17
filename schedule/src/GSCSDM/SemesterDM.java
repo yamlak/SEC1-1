@@ -36,7 +36,7 @@ import java.io.*;
 		        		//split data by comma
 			        	token = line.split(",");
 			        	
-			        	 semester = new Semester(token[0],token[1],token[2]);
+			        	 semester = new Semester(univ, token[0],token[1],token[2]);
 			        
 			        	univ.addSemester(semester);
 			        				        	

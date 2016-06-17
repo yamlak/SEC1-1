@@ -32,12 +32,12 @@ public class Semester
 		
 	}
 	
-	public Semester(String semesterName, String startDate, String endDate )
-	{	//this();
+	public Semester(University university, String semesterName, String startDate, String endDate )
+	{	this();
 		this.semesterName= semesterName;
 		this.startDate= startDate;
 		this.endDate = endDate;
-		//university.addSemester(this);
+		university.addSemester(this);
 	}
 	
 
@@ -82,5 +82,10 @@ public class Semester
 	{
 		this.endDate = endDate;
 	}
-
+	public String toString()
+	{
+		return getName()+" "
+				+getStartDate()+" "
+				+getEndDate();
+	}
 }

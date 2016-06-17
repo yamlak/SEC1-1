@@ -3,7 +3,8 @@ package GSCSPD;
 import java.util.*;
 import java.util.Map.Entry;
 
-import GSCSDM.SemesterDM;
+import GSCSDM.*;
+import GSCSPD.*;
 
 
 
@@ -16,7 +17,7 @@ public class University
 	/**
 	 * Association Type = GSCSPD.ClassRoom;
 	 */
-	private TreeMap<String, GraduateSchool> graduateSchool;
+	private TreeMap<String, GraduateSchool> gradSchools;
 	private TreeMap<String, Semester> semesters;
 	/**
 	 * name of the university
@@ -68,7 +69,7 @@ public class University
 		this.setName(name);
 		semesters = new TreeMap <String, Semester>();
 		//classRooms = new TreeMap <String, ClassRoom>();
-		//graduateSchools = new TreeMap <String, GraduateSchool>();
+		gradSchools = new TreeMap <String, GraduateSchool>();
 		//throw new UnsupportedOperationException();
 	}
 
@@ -76,7 +77,7 @@ public class University
 	{
 			semesters = new TreeMap <String, Semester>();
 			//classRooms = new TreeMap <String, ClassRoom>();
-			//graduateSchools = new TreeMap <String, GraduateSchool>();
+			gradSchools = new TreeMap <String, GraduateSchool>();
 			
 	//	throw new UnsupportedOperationException();
 	}
@@ -92,23 +93,38 @@ public class University
 	 * 
 	 * @param semester
 	 */
-	ArrayList<Semester> seme = new ArrayList<Semester>();
+	
+	
 	public void addSemester(Semester semester)
 	{
-		//if (semester != null)
-		//{
-			this.seme.add(semester);
-		//}
+		if (semester != null)
+		{
+			getSemesters().put(semester.getName(), semester);
+		}
 	}
 	
-	public void getSemester()
+	public void removeSemester(Semester semester )
 	{
-		for(Semester s: seme)
-		System.out.println(s.getName() + " " + s.getStartDate() + " " + s.getEndDate());
-		
+		if (semester != null)
+		{
+			getSemesters().remove(semester.getName());
+		}
 	}
 	
-	ArrayList<GraduateSchool> gSchool = new ArrayList<GraduateSchool>();
+	public String[] getSemesterList()
+	{
+		String[] semesterList = new String[getSemesters().entrySet().size()]; 
+		int i =0;
+		for (Entry<String, Semester> entry : getSemesters().entrySet()) 
+		{
+	        semesterList[i] = (entry.getValue().getStartDate());
+	        i++;
+		}
+		return semesterList;
+	}
+	
+	
+	/*ArrayList<GraduateSchool> gSchool = new ArrayList<GraduateSchool>();
 	
 	public void addGraduateSchool(GraduateSchool graduateSchool )
 	{
@@ -122,19 +138,50 @@ public class University
 			System.out.println(gs.getName() + " " + gs.getAbbreviation());
 			
 		
+	}*/
+	
+	public TreeMap<String,GraduateSchool> getGradSchools()
+	{
+		return this.gradSchools;
 	}
 	
+	/**
+	 * Adds the gradschools to the university.
+	 * 
+	 * 
+	 * @param gradSchools
+	 */
 	
-	public String[] getSemesterList()
+	
+	public void addGradSchools(GraduateSchool gradSchool)
 	{
-		String[] semesterList = new String[getSemesters().entrySet().size()]; 
-		int i =0;
-		for (Entry<String, Semester> entry : getSemesters().entrySet()) 
+		if (gradSchool != null)
 		{
-	        semesterList[i] = (entry.getValue().getName());
+			getGradSchools().put(gradSchool.getAbbreviation(), gradSchool);
+		}
+	}
+	
+	public void removeGradSchools(GraduateSchool gradSchool )
+	{
+		if ( gradSchool!= null)
+		{
+			getGradSchools().remove(gradSchool.getAbbreviation());
+		}
+	}
+	
+	public String[] getGradSchoolsList()
+	{
+		String[] gradSchoolsList = new String[getGradSchools().entrySet().size()]; 
+		int i =0;
+		for (Entry<String, GraduateSchool> entry : getGradSchools().entrySet()) 
+		{
+			gradSchoolsList[i] = (entry.getValue().getName());
 	        i++;
 		}
-		return semesterList;
+		return gradSchoolsList;
 	}
+	
+	
+	
 
 }

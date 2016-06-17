@@ -37,9 +37,9 @@ public class GradSchoolDM {
 	        		//split data by comma
 		        	token = line.split(",");
 		        	
-		        	 gradSchool = new GraduateSchool(token[0],token[1]);
+		        	 gradSchool = new GraduateSchool(univ, token[0],token[1]);
 		        
-		        	univ.addGraduateSchool(gradSchool);
+		        	univ.addGradSchools(gradSchool);
 		        				        	
 		     }    
 	        // Always close files.
@@ -57,5 +57,6 @@ public class GradSchoolDM {
 	            + fileName + "'");   	
 		
 		}
+	  
 	}
 }

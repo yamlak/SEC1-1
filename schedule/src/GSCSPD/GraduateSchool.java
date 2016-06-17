@@ -56,10 +56,11 @@ public class GraduateSchool
 	{
 		
 	}
-	public GraduateSchool(String abbreviation, String name)
-	{
+	public GraduateSchool(University university, String abbreviation, String name)
+	{	this();
 		this.abbreviation = abbreviation;
 		this.name = name;
+		university.addGradSchools(this);
 		
 	}
 	
@@ -76,4 +77,9 @@ public class GraduateSchool
 		System.out.println(f.getLastName() + " " + f.getFirstName() + " " + f.getDegree() + " " + f.getTitle() + " "+ f.getDaysToTeach());
 	}
 
+	public String toString()
+	{
+		return getName()+" "
+				+getAbbreviation()+" ";
+	}
 }
