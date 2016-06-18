@@ -19,13 +19,13 @@ public class Degree
 	 */
 	private String code;
 	/**
-	 * Degree plan consists of different departments. This shows different departments available in this university
+	 * Degree program under grad school . This shows different departments available in this university
 	 */
-	private String department;
+	private String gradSchool;
 	/**
 	 * credit hour is a unit that gives weight to the value, level or time requirement of an academic course taken at a educational institution.
 	 */
-	private String track;
+	private String forecast;
 
 	public String getName()
 	{
@@ -55,40 +55,38 @@ public class Degree
 		this.code = code;
 	}
 
-	public String getDepartment()
+	public String getGradSchool()
 	{
-		return this.department;
+		return this.gradSchool;
 	}
 
 	/**
 	 * 
 	 * @param department
 	 */
-	public void setDepartment(String department)
+	public void setGradSchool(String gradSchool)
 	{
-		this.department = department;
+		this.gradSchool = gradSchool;
 	}
 
-	public String getHours()
+	public String getForecast()
 	{
-		// TODO - implement Degree.getHours
-		throw new UnsupportedOperationException();
+		return this.forecast;
 	}
 
 	/**
 	 * 
 	 * @param hours
 	 */
-	public void setHours(String hours)
+	public void setHours(String forecast)
 	{
-		// TODO - implement Degree.setHours
-		throw new UnsupportedOperationException();
+		this.forecast = forecast;
 	}
 
 	public Degree()
 	{
 		// TODO - implement Degree.Degree
-		throw new UnsupportedOperationException();
+
 	}
 
 	/**
@@ -96,10 +94,15 @@ public class Degree
 	 * @param code
 	 * @param name
 	 */
-	public Degree(String code, String name)
+	public Degree(GraduateSchool gradSchool, String code, String gSchool,String name, String forecast)
 	{
-		// TODO - implement Degree.Degree
-		throw new UnsupportedOperationException();
+		this();
+		this.code = code;
+		this.gradSchool = gSchool;
+		this.name = name;
+		this.forecast = forecast;
+		gradSchool.addDegree(this);
+		
 	}
 
 	public void NumberCourseNeeded()
@@ -117,5 +120,11 @@ public class Degree
 		// TODO - implement Degree.listCourseToTake
 		throw new UnsupportedOperationException();
 	}
-
+	public String toString()
+	{
+		return getCode()+" "
+				+getGradSchool()+" "
+				+getName()+" "
+				+getForecast();
+	}
 }

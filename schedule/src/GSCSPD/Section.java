@@ -9,7 +9,7 @@ public class Section
 {
 
 	Schedule schedule;
-	course course;
+	Course course;
 	Faculty faculty;
 	/**
 	 * unique number provided for a section

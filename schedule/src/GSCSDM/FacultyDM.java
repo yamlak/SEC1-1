@@ -1,17 +1,16 @@
 package GSCSDM;
 
 import GSCSPD.*;
-	
-	import java.io.*;
 
-import GSCSPD.Section;
-import GSCSPD.Semester;
-import GSCSPD.University;
+	
+import java.io.*;
+
+
 
 public class FacultyDM {
 
 	/**
-	 * loadFaculty(university) looks for data in the file with given file name. 
+	 * loadFaculty(gradSchool) looks for data in the file with given file name. 
 	 * @param store
 	 */
 
@@ -41,9 +40,10 @@ public class FacultyDM {
 	        		//split data by comma
 		        	token = line.split(",");
 		        	
-		        	faculty = new Faculty(token[0],token[1],token[3], token[4], token[5]);
+		        	faculty = new Faculty(gradSchool, token[0],token[1],token[3], token[4], token[5]);
 		        
 		        	gradSchool.addFaculty(faculty);
+		        	
 		        				        	
 		     }    
 	        // Always close files.

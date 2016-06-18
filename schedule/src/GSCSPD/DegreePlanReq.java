@@ -9,7 +9,7 @@ public class DegreePlanReq
 {
 
 	Degree degree;
-	course course;
+	Course course;
 	/**
 	 * name of the degree requirements
 	 */

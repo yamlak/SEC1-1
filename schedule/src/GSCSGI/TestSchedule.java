@@ -12,32 +12,16 @@ public static GraduateSchool gradSchool;
 	public static void main(String[] args) {
 		
 		myUniversity = new University();
-//		gradSchool = new GraduateSchool();
-	/*	System.out.println("Ready to open Store");
-		myStore.openStore();
-		printStore();
-		System.out.println("Store Open:"+myStore.getName() );
-*/
-		
-		
+		gradSchool = new GraduateSchool();
+
 		// reading data from a csv file
-		  System.out.println("\n Reading semester from csv :\n");
+		  //System.out.println("\n Reading semester from csv :\n");
 		  		 
 		  SemesterDM.loadSemester(myUniversity);
-		  
-		     // display semester data
-		 // myUniversity.getSemester();
-		  
-		 /* GradSchoolDM.loadGraduateSchool(myUniversity);
-		  System.out.println("\n Reading GradSchool from csv :\n");
-		  myUniversity.getGraduateSchool();
-		  
-		  System.out.println("\n Reading Faculty from csv :\n");
-		  FacultyDM.loadFaculty(gradSchool);
-		  gradSchool.getFaculty();
-		  
-		// System.out.println(myUniversity.getName()+ " " + sem.getStartDate()+ " " + sem.getEndDate());
-*/
+		  GradSchoolDM.loadGraduateSchool(myUniversity);
+		  FacultyDM.loadFaculty(gradSchool); 
+		  DegreeDM.loadDegree(gradSchool);
+		  CourseDM.loadCourse(gradSchool);  
 		  printUniversity();
 
 	}
@@ -55,7 +39,9 @@ public static GraduateSchool gradSchool;
 	        System.out.println(entry.getValue().getPerson().getName());
 	        
 		}
-		*/System.out.println("==============");
+		*/
+		
+		System.out.println("==============");
 		System.out.println("GradSchool");
 		System.out.println("==============");
 		for (Entry<String, GraduateSchool> entry : myUniversity.getGradSchools().entrySet()) 
@@ -70,14 +56,31 @@ public static GraduateSchool gradSchool;
 		{
 	        System.out.println(entry.getValue().toString());
 		}
-		/*System.out.println("==============");
-		System.out.println("Sessions");
 		System.out.println("==============");
-		for (Session session : myStore.getSessions())
-	
+		System.out.println("Faculty");
+		System.out.println("==============");
+		for (Entry<String, Faculty> entry : gradSchool.getFaculties().entrySet())
 		{
-	        System.out.println(session.toString());
-		}*/
+	        System.out.println(entry.getValue().toString());
+		}
+		System.out.println("==============");
+		System.out.println("Degree");
+		System.out.println("==============");
+		for (Entry<String, Degree> entry : gradSchool.getDegrees().entrySet()) 
+		{
+	        System.out.println(entry.getValue().toString());
+	        
+		}
+		
+		System.out.println("==============");
+		System.out.println("Course");
+		System.out.println("==============");
+		for (Entry<String, Course> entry : gradSchool.getCourses().entrySet()) 
+		{
+	        System.out.println(entry.getValue().toString());
+	        
+		}
+		
 	}
 
 }

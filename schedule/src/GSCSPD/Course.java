@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * courses offered in graduate school
  */
-public class course
+public class Course
 {
 
 	GraduateSchool graduateSchool;
@@ -27,7 +27,7 @@ public class course
 	/**
 	 * number of credit hours per course
 	 */
-	private int CreditHours;
+	private int creditHours;
 
 	public String getNumber()
 	{
@@ -73,24 +73,39 @@ public class course
 
 	public int getCreditHours()
 	{
-		// TODO - implement course.getCreditHours
-		throw new UnsupportedOperationException();
+		return this.creditHours;
 	}
 
 	/**
 	 * 
 	 * @param CreditHours
 	 */
-	public void setCreditHours(int CreditHours)
+	public void setCreditHours(int creditHours)
 	{
-		// TODO - implement course.setCreditHours
-		throw new UnsupportedOperationException();
+		this.creditHours = creditHours;
 	}
 
-	public course()
+	public Course()
 	{
-		// TODO - implement course.course
-		throw new UnsupportedOperationException();
+		
 	}
+	public Course(GraduateSchool gradSchool, String number, String name, String description)
+	{
+		this();
+		this.number = number;
+		this.name = name;
+		this.description = description; 
+		this.creditHours = 3;
+		gradSchool.addCourses(this);
 
+	}
+	
+	public String toString()
+	{
+		return getNumber()+" "
+				+getName()+" "
+				+getDescription()+" "
+				+getCreditHours();
+	}
 }
+

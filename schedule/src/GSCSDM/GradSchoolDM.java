@@ -5,9 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import GSCSPD.Semester;
-import GSCSPD.University;
-import GSCSPD.GraduateSchool;
+import GSCSPD.*;
+
 
 public class GradSchoolDM {
 
@@ -57,6 +56,6 @@ public class GradSchoolDM {
 	            + fileName + "'");   	
 		
 		}
-	  
+	 
 	}
 }

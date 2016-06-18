@@ -1,6 +1,7 @@
 package GSCSPD;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * instructor of a course
@@ -98,13 +99,14 @@ public class Faculty
 	 * @param title
 	 * @param daysToTeach
 	 */
-	public Faculty(String lName, String fname, String degree, String title, String daysToTeach)
-	{
+	public Faculty(GraduateSchool gradSchool, String lName, String fname, String degree, String title, String daysToTeach)
+	{	this();
 		this.lastName = lName;
 		this.firstName = fname;
 		this.degree = degree;
 		this.title = title;
 		this.daysToTeach = daysToTeach;
+		gradSchool.addFaculty(this);
 	}
 
 	public String getDaysToTeach()
@@ -130,7 +132,14 @@ public class Faculty
 	{
 		this.degree = degree;
 	}
-
+	public String toString()
+	{
+		return getLastName()+" "
+				+getFirstName()+" "
+				+getTitle()+" "
+				+getDaysToTeach()+ " "
+				+getDegree();
+	}
 	/**
 	 * 
 	 * @param schedule

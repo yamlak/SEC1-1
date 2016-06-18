@@ -9,7 +9,7 @@ public class StudentCourses
 {
 
 	Semester semester;
-	course course;
+	Course course;
 	Student student;
 	/**
 	 * student grades in a course
