@@ -216,4 +216,46 @@ public class GraduateSchool
 		return getName()+" "
 				+getAbbreviation()+" ";
 	}
+	
+	public TreeMap<String,Student> getStudents()
+	{
+		return this.students;
+	}
+	
+	/**
+	 * Adds the Student to the grad school.
+	 * 
+	 * 
+	 * @param semester
+	 */
+	
+	
+	public void addStudents(Student student)
+	{
+		if (student != null)
+		{
+			getStudents().put(student.getId(), student);
+		}
+	}
+	
+	public void removeStudent(Student student)
+	{
+		if (student != null)
+		{
+			getStudents().remove(student.getId(), student);
+		}
+	}
+	
+	public String[] getStudentList()
+	{
+		String[] studentList = new String[getStudents().entrySet().size()]; 
+		int i =0;
+		for (Entry<String, Student> entry : getStudents().entrySet())
+		{
+	        studentList[i] = (entry.getValue().getDegreeCode());
+	        i++;
+		}
+		return studentList;
+	}
+	
 }

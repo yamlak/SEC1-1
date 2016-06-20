@@ -89,13 +89,13 @@ public class Course
 	{
 		
 	}
-	public Course(GraduateSchool gradSchool, String number, String name, String description)
+	public Course(GraduateSchool gradSchool, String number, String name, String description, int creditHourse)
 	{
 		this();
 		this.number = number;
 		this.name = name;
 		this.description = description; 
-		this.creditHours = 3;
+		this.creditHours = creditHourse;
 		gradSchool.addCourses(this);
 
 	}

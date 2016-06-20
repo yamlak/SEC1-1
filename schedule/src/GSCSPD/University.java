@@ -8,6 +8,7 @@ import GSCSPD.*;
 
 
 
+
 /**
  * An educational institution designed for instruction, examination, or both, of students in many branches of advanced learning, conferring degrees in various facilities, and often embodying colleges and similar institutions. Oklahoma Christian university is a private comprehensive coeducational Christian liberal arts university.
  */
@@ -181,6 +182,14 @@ public class University
 		return gradSchoolsList;
 	}
 	
+
+	/**
+	 * Loads the store.
+	 */
+	public void openUniversity()
+	{
+		UniversityDM.loadUniversity(this);
+	}
 	
 	
 

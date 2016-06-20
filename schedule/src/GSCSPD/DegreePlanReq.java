@@ -13,7 +13,7 @@ public class DegreePlanReq
 	/**
 	 * name of the degree requirements
 	 */
-	private String name;
+	private String degreeCode;
 	/**
 	 * number of hours the course is offered
 	 */
@@ -25,28 +25,28 @@ public class DegreePlanReq
 	/**
 	 * courses are mandatory to finish a degree
 	 */
-	private String coreCourse;
+	private String courses;
 	/**
 	 * from a list of electives, courses are chosen by students based on requirement
 	 */
-	private String elective;
+	private String description;
 	/**
 	 * students take prerequisites on requirement
 	 */
 	private String prerequisites;
 
-	public String getName()
+	public String getDegreeCode()
 	{
-		return this.name;
+		return this.degreeCode;
 	}
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public void setName(String name)
+	public void setDegreeCode(String degreeCode)
 	{
-		this.name = name;
+		this.degreeCode = degreeCode;
 	}
 
 	public int getHours()
@@ -77,32 +77,32 @@ public class DegreePlanReq
 		this.type = type;
 	}
 
-	public String getCoreCourse()
+	public String getCourses()
 	{
-		return this.coreCourse;
+		return this.courses;
 	}
 
 	/**
 	 * 
 	 * @param coreCourse
 	 */
-	public void setCoreCourse(String coreCourse)
+	public void setCourses(String courses)
 	{
-		this.coreCourse = coreCourse;
+		this.courses = courses;
 	}
 
-	public String getElective()
+	public String getDescriptions()
 	{
-		return this.elective;
+		return this.description;
 	}
 
 	/**
 	 * 
 	 * @param elective
 	 */
-	public void setElective(String elective)
+	public void setDescriptions(String description)
 	{
-		this.elective = elective;
+		this.description = description;
 	}
 
 	public String getPrerequisites()
@@ -131,8 +131,23 @@ public class DegreePlanReq
 
 	public DegreePlanReq()
 	{
-		// TODO - implement DegreePlanReq.DegreePlanReq
-		throw new UnsupportedOperationException();
+	
+	}
+	
+	public DegreePlanReq(Degree degree, String degreeCode, String description, int hours, String type, String courses)
+	{
+		this();
+		this.degreeCode = degreeCode;
+		this.description = description;
+		this.hours = hours;
+		this.courses = courses;
 	}
 
+	public String toString()
+	{
+		return getDegreeCode()+" "
+				+getDescriptions()+" "
+				+getHours() + " "
+				+getCourses();
+	}
 }

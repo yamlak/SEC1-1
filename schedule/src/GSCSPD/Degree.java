@@ -2,6 +2,8 @@ package GSCSPD;
 
 import java.util.*;
 
+
+
 /**
  * A degree plan is a definition of the course of study necessary to fulfill the requirement of graduation. A degree plan is "major specific" and is established through collaboration between the student and the academic advisor for the student's major.
  */
@@ -9,8 +11,8 @@ public class Degree
 {
 
 	GraduateSchool graduateSchool;
-	ArrayList<DegreePlanReq> degreeRequirements;
-	/**
+	ArrayList<DegreePlanReq> degreePlanReq;
+	/** 
 	 * name of the degree plan offered
 	 */
 	private String name;
@@ -85,7 +87,7 @@ public class Degree
 
 	public Degree()
 	{
-		// TODO - implement Degree.Degree
+		 degreePlanReq = new ArrayList<DegreePlanReq>();
 
 	}
 
@@ -103,6 +105,19 @@ public class Degree
 		this.forecast = forecast;
 		gradSchool.addDegree(this);
 		
+	}
+	
+	public ArrayList<DegreePlanReq> getDegreePlanReqs()
+	{
+		return this.degreePlanReq;
+	}
+	
+	public void addDegreePlanReq (DegreePlanReq degreePlan)
+	{
+		if (degreePlan != null)
+		{
+			getDegreePlanReqs().add(degreePlan);
+		}
 	}
 
 	public void NumberCourseNeeded()

@@ -9,50 +9,64 @@ public class Student
 {
 
 	GraduateSchool graduateSchool;
-	ArrayList<StudentCourses> studentcourses;
+	ArrayList<StudentCourses> studentCourses;
 	/**
 	 * unique identification number of the student
 	 */
 	private String id;
+	
+	private String degreeCode;
 	/**
-	 * name of the student
+	 * name of the graduationDate
 	 */
-	private String name;
+	private String graduationDate;
 
-	public String getNumber()
+	public String getId()
 	{
-		// TODO - implement Student.getNumber
-		throw new UnsupportedOperationException();
+		return this.id;
+		
 	}
 
 	/**
 	 * 
 	 * @param number
 	 */
-	public void setNumber(String number)
+	public void setId(String id)
 	{
-		// TODO - implement Student.setNumber
-		throw new UnsupportedOperationException();
+		this.id = id;
 	}
 
-	public String getName()
+	public String getDegreeCode()
 	{
-		return this.name;
+		return this.degreeCode;
 	}
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public void setName(String name)
+	public void setDegreeCode(String degreeCode)
 	{
-		this.name = name;
+		this.degreeCode = degreeCode;
+	}
+	
+	public String getGraduationDate()
+	{
+		return this.graduationDate;
+	}
+
+	/**
+	 * 
+	 * @param name
+	 */
+	public void setGraduationDate(String graduationDate)
+	{
+		this.graduationDate = graduationDate;
 	}
 
 	public Student()
 	{
-		// TODO - implement Student.Student
-		throw new UnsupportedOperationException();
+		studentCourses = new ArrayList<StudentCourses>(); 
 	}
 
 	/**
@@ -60,10 +74,33 @@ public class Student
 	 * @param id
 	 * @param name
 	 */
-	public Student(String id, String name)
+	public Student(GraduateSchool gradSchool, String id, String degreeCode, String graduationDate)
 	{
-		// TODO - implement Student.Student
-		throw new UnsupportedOperationException();
+		this();
+		this.id = id;
+		this.degreeCode = degreeCode;
+		this.graduationDate = graduationDate;
+		gradSchool.addStudents(this);
+	}
+	
+	public ArrayList<StudentCourses> getStudentCourses()
+	{
+		return this.studentCourses;
+	}
+	
+	public void addStudentCourses (StudentCourses studentCourses)
+	{
+		if (studentCourses != null)
+		{
+			getStudentCourses().add(studentCourses);
+		}
+	}
+	
+	public String toString()
+	{
+		return getId()+" "
+				+getDegreeCode()+" "
+				+getGraduationDate();
 	}
 
 }
