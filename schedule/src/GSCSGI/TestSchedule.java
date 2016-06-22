@@ -44,15 +44,7 @@ public static Student student;
 	 */
 	public static void printUniversity()
 	{
-		/*System.out.println("==============");
-		System.out.println("Cashiers");
-		System.out.println("==============");
-		for (Entry<String, Cashier> entry : myStore.getCashiers().entrySet()) 
-		{
-	        System.out.println(entry.getValue().getPerson().getName());
-	        
-		}
-		*/
+		
 		
 		System.out.println("==============");
 		System.out.println("GradSchool");
