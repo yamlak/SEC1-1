@@ -40,7 +40,7 @@ public class UniversityEdit extends JPanel {
 	/**
 	 * Create the panel with passed current frame and store.
 	 */
-	public UniversityEdit(JFrame currentFrame, University univ) {
+	public UniversityEdit(JFrame currentFrame, University univ, GraduateSchool gradSchool) {
 		
 		setLayout(null);
 		
@@ -124,34 +124,7 @@ public class UniversityEdit extends JPanel {
 		btnAdd.setBounds(49, 326, 67, 23);
 		add(btnAdd);
 		
-		/* semesterListModel = new DefaultListModel(); 
-			for (Entry<String, Semester> semesterEntry : univ.getSemesters().entrySet())
-			semesterListModel.addElement(semesterEntry.getValue());
-		    JList semesterList =  new JList(semesterListModel);
-			semesterList.setBounds(81,171,143,131);
-			semesterList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-			semesterList.addListSelectionListener(new ListSelectionListener(){
-				public void valueChanged(ListSelectionEvent e) {
-					if (semesterList.getSelectedValues() != null) 
-					{
-						btnUpdate.setEnabled(true);
-					}
-					if(semesterList.getSelectedValue() == null )
-					{
-						btnDelete_1.setEnabled(false);
-					}
-					else
-					{
-						btnDelete_1.setEnabled(true);
-					}
-				}
-			});
-			JScrollPane scrollpane2 = new JScrollPane(semesterList);
-			semesterList.setBounds(400, 161, 158, 138);
-			add(scrollpane2, BorderLayout.CENTER);*/
-			
-			//add(semesterList);
-			 
+					 
 			JLabel lblGradSchools = new JLabel(" Grad Schools");
 			lblGradSchools.setBounds(138, 143, 82, 16);
 			add(lblGradSchools);
@@ -191,12 +164,7 @@ public class UniversityEdit extends JPanel {
 		btnCancel.setBounds(335, 360, 117, 29);
 		add(btnCancel);
 		
-	/*	JList list_1 = new JList();
-		list_1.setBounds(61, 177, 170, 138);
-		add(list_1);*/
-		
-		 
-		
+	
 		
 	
 		
@@ -214,6 +182,9 @@ public class UniversityEdit extends JPanel {
 		btnAdd_1 = new JButton("Add");
 		btnAdd_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				currentFrame.getContentPane().removeAll();
+				currentFrame.getContentPane().add(new SemesterEdit(currentFrame, univ, gradSchool, new Semester(),true));
+				currentFrame.getContentPane().revalidate();
 			}
 		});
 		btnAdd_1.setBounds(381, 326, 67, 23);
@@ -255,7 +226,7 @@ public class UniversityEdit extends JPanel {
 		btnUpdate_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new SemesterEdit(currentFrame, univ,(Semester)semesterList.getSelectedValue(),false));
+				currentFrame.getContentPane().add(new SemesterEdit(currentFrame, univ, gradSchool,(Semester)semesterList.getSelectedValue(),false));
 				currentFrame.getContentPane().revalidate();
 			}
 		});

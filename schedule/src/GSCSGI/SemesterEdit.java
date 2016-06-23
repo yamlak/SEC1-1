@@ -23,7 +23,7 @@ public class SemesterEdit extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public SemesterEdit(JFrame currentFrame, University univ, Semester semester, boolean isAdd) {
+	public SemesterEdit(JFrame currentFrame, University univ, GraduateSchool gradSchool, Semester semester, boolean isAdd) {
 		setLayout (null);
 		
 		JLabel lblName = new JLabel("Name");
@@ -79,10 +79,10 @@ public class SemesterEdit extends JPanel {
 				semester.setEndDate(textFieldEndDate.getText());
 							
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
+				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ,gradSchool));
 				currentFrame.getContentPane().revalidate();
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new GSCSHome(univ));
+				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ, gradSchool));
 				currentFrame.getContentPane().revalidate();
 			}
 		});

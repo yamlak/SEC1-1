@@ -24,8 +24,9 @@ public class GSCSJFrame extends JFrame {
 	/**
 	 * Create the frame with passed store.
 	 */
-	public GSCSJFrame(University univ) {
+	public GSCSJFrame(University univ, GraduateSchool gradSchool) {
 		currentFrame = this;
+		//GraduateSchool gradSchool = new GraduateSchool() ;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 658, 473);
@@ -43,7 +44,7 @@ public class GSCSJFrame extends JFrame {
 		mntmUniversity.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-				getContentPane().add(new UniversityEdit(currentFrame,univ));
+				getContentPane().add(new UniversityEdit(currentFrame,univ, gradSchool));
 				getContentPane().revalidate();
 			}
 		});
@@ -55,7 +56,7 @@ public class GSCSJFrame extends JFrame {
 		mntmDegree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-				//getContentPane().add(new CashierListPanel(currentFrame,univ));
+				getContentPane().add(new DegreeList(currentFrame,univ,gradSchool));
 				getContentPane().revalidate();
 			}
 		});
@@ -179,9 +180,9 @@ public class GSCSJFrame extends JFrame {
 	 * Launch the application.
 	 */
 
-	public static void run(University univ) {
+	public static void run(University univ, GraduateSchool gradSchool) {
 		try {
-			JFrame frame = new GSCSJFrame(univ);
+			JFrame frame = new GSCSJFrame(univ,gradSchool);
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -162,7 +162,7 @@ public class GraduateSchool
 		int i =0;
 		for (Entry<String, Degree> entry : getDegrees().entrySet())
 		{
-	        degreeList[i] = (entry.getValue().getName());
+	        degreeList[i] = (entry.getValue().getCode());
 	        i++;
 		}
 		return degreeList;

@@ -65,12 +65,12 @@ public class University
 	public University(String name, String abbreviation)
 	{
 		// TODO - implement University.University
-		
+		this();
 		this.setAbbreviation(abbreviation);
 		this.setName(name);
-		semesters = new TreeMap <String, Semester>();
+	//	semesters = new TreeMap <String, Semester>();
 		//classRooms = new TreeMap <String, ClassRoom>();
-		gradSchools = new TreeMap <String, GraduateSchool>();
+	//	gradSchools = new TreeMap <String, GraduateSchool>();
 		//throw new UnsupportedOperationException();
 	}
 
@@ -176,7 +176,7 @@ public class University
 		int i =0;
 		for (Entry<String, GraduateSchool> entry : getGradSchools().entrySet()) 
 		{
-			gradSchoolsList[i] = (entry.getValue().getName());
+			gradSchoolsList[i] = (entry.getValue().getAbbreviation());
 	        i++;
 		}
 		return gradSchoolsList;

@@ -22,7 +22,7 @@ public static Student student;
 		student = new Student();
 
 		myUniversity.openUniversity();;
-		GSCSJFrame.run(myUniversity);
+		GSCSJFrame.run(myUniversity,gradSchool);
 
 		// reading data from a csv file
 		  //System.out.println("\n Reading semester from csv :\n");
