@@ -78,7 +78,7 @@ public class GSCSJFrame extends JFrame {
 		mntmCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-			//	getContentPane().add(new CourseListPanel(currentFrame,univ));
+				getContentPane().add(new CourseList(currentFrame,univ,gradSchool));
 				getContentPane().revalidate();
 			}
 		});
@@ -99,7 +99,27 @@ public class GSCSJFrame extends JFrame {
 		JMenu mnImport = new JMenu("Import");
 		menuBar.add(mnImport);
 		
-		//Menu item in Maintain. When clicked takes user to Faculty page
+		JMenuItem mntmStudent_1 = new JMenuItem("Student");
+		mntmStudent_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					getContentPane().removeAll();
+					getContentPane().add(new ImportStudent(currentFrame,univ,gradSchool));
+					getContentPane().revalidate();
+			}
+		});
+		mnImport.add(mntmStudent_1);
+		
+		JMenuItem mntmStudentCourse_1 = new JMenuItem("Student Course");
+		mntmStudentCourse_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				getContentPane().removeAll();
+				getContentPane().add(new ImportStudentCourse(currentFrame,univ,gradSchool));
+				getContentPane().revalidate();
+			}
+		});
+		mnImport.add(mntmStudentCourse_1);
+		
+		/*Menu item in Maintain. When clicked takes user to Faculty page
 				JMenuItem mntmStudent = new JMenuItem("Student");
 				mntmStudent.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -108,10 +128,10 @@ public class GSCSJFrame extends JFrame {
 						getContentPane().revalidate();
 					}
 				});
-				mnMaintain.add(mntmStudent);
+				mnMaintain.add(mntmStudent);*/
 				
 				//Menu item in Maintain. When clicked takes user to Item page
-				JMenuItem mntmStudentCourse = new JMenuItem("StudentCourse");
+			/*	JMenuItem mntmStudentCourse = new JMenuItem("StudentCourse");
 				mntmStudentCourse.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						getContentPane().removeAll();
@@ -119,7 +139,7 @@ public class GSCSJFrame extends JFrame {
 						getContentPane().revalidate();
 					}
 				});
-				mnMaintain.add(mntmStudentCourse);
+				mnMaintain.add(mntmStudentCourse);*/
 		
 		
 		

@@ -14,10 +14,10 @@ public class StudentCoursesDM {
 	 * @param store
 	 */
 
-	public static void loadStudentCourses(Student student)
+	public static void loadStudentCourses(GraduateSchool gradSchool, String fileName)
 	{
 		
-		String fileName ="data/STC.DUMP.csv";
+		//String fileName ="data/STC.DUMP.csv";
 		String line = null;
 		String[] token;
 		StudentCourses studentCourses = new StudentCourses();
@@ -40,9 +40,9 @@ public class StudentCoursesDM {
 	        		//split data by comma
 		        	token = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 		        	
-		        	studentCourses = new StudentCourses(student, token[0],token[1],token[3], token[4]);
+		        	studentCourses = new StudentCourses(gradSchool, token[0],token[1],token[3], token[4]);
 		        
-		        	student.addStudentCourses(studentCourses);		        	
+		        	gradSchool.addStudentCourses(studentCourses);		        	
 		        				        	
 		     }    
 	        // Always close files.

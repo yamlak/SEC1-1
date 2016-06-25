@@ -75,8 +75,8 @@ public class Degree
 	{
 		return this.forecast;
 	}
-
-	/**
+		
+/**
 	 * 
 	 * @param hours
 	 */
@@ -103,6 +103,7 @@ public class Degree
 		this.gradSchool = gSchool;
 		this.name = name;
 		this.forecast = forecast;
+		degreePlanReq = new ArrayList<DegreePlanReq>();
 		gradSchool.addDegree(this);
 		
 	}

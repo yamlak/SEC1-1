@@ -14,10 +14,10 @@ package GSCSDM;
 		 * @param store
 		 */
 
-		public static void loadCourse(GraduateSchool gradSchool)
+		public static void loadCourse(University univ, String fileName)
 		{
 			
-			String fileName ="data/TestDataCourses.csv";
+		//	String fileName ="data/TestDataCourses.csv";
 			String line = null;
 			String[] token;
 			Course course = new Course();
@@ -42,9 +42,9 @@ package GSCSDM;
 			        	token = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 			        			        
 			        	
-			        	course = new Course(gradSchool, token[0],token[1],token[2], Integer.parseInt(token[3]));
+			        	course = new Course(univ, token[0],token[1],token[2], Integer.parseInt(token[3]));
 			        
-			        	gradSchool.addCourses(course);
+			        	univ.addCourses(course);
 			        	
 			        				        	
 			     }    

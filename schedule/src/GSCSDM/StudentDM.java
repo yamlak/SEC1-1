@@ -14,10 +14,10 @@ public class StudentDM {
 	 * @param store
 	 */
 
-	public static void loadStudent(GraduateSchool gradSchool)
+	public static void loadStudent(GraduateSchool gradSchool, String fileName)
 	{
 		
-		String fileName ="data/STU.DUMP.csv";
+		//String fileName ="data/STU.DUMP.csv";
 		String line = null;
 		String[] token;
 		Student student = new Student();

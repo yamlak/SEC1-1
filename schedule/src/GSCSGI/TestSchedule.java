@@ -20,7 +20,7 @@ public static Student student;
 		gradSchool = new GraduateSchool();
 		degree = new Degree();
 		student = new Student();
-
+        String studentFileName = "data/STU.DUMP.csv";
 		myUniversity.openUniversity();;
 		GSCSJFrame.run(myUniversity,gradSchool);
 
@@ -31,10 +31,10 @@ public static Student student;
 		  GradSchoolDM.loadGraduateSchool(myUniversity);
 		  FacultyDM.loadFaculty(gradSchool); 
 		  DegreeDM.loadDegree(gradSchool);
-		  CourseDM.loadCourse(gradSchool); 
+		  CourseDM.loadCourse(myUniversity, "data/TestDataCourses.csv"); 
 		  DegreePlanReqDM.loadDegreePlanReq(degree);
-		  StudentDM.loadStudent(gradSchool);
-		 // StudentCoursesDM.loadStudentCourses(student);
+		 // StudentDM.loadStudent(gradSchool,studentFileName);
+		 // StudentCoursesDM.loadStudentCourses(student, "data/STC.DUMP.csv");
 		  printUniversity();
 
 	}
@@ -80,7 +80,7 @@ public static Student student;
 		System.out.println("==============");
 		System.out.println("Course");
 		System.out.println("==============");
-		for (Entry<String, Course> entry : gradSchool.getCourses().entrySet()) 
+		for (Entry<String, Course> entry : myUniversity.getCourses().entrySet()) 
 		{
 	        System.out.println(entry.getValue().toString());
 	        

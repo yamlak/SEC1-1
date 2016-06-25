@@ -22,6 +22,7 @@ public class GraduateSchool
 	//ArrayList<Student> students;
 	//ArrayList<Degree> degreePlan;
 	ArrayList<Schedule> schedule;
+	ArrayList<StudentCourses> studentCourses = new ArrayList<>();
 	/**
 	 * name given to represent school
 	 */
@@ -131,6 +132,10 @@ public class GraduateSchool
 		return this.degrees;
 	}
 	
+	public TreeMap<String,DegreePlanReq> getDegreePlans()
+	{
+		return this.degreePlan;
+	}
 	/**
 	 * Adds the Degree to the grad school.
 	 * 
@@ -167,6 +172,19 @@ public class GraduateSchool
 		}
 		return degreeList;
 	}
+	
+	public String[] getDegreePlanList()
+	{
+		String[] degreePlanList = new String[getDegrees().entrySet().size()]; 
+		int i =0;
+		for (Entry<String, DegreePlanReq> entry : getDegreePlans().entrySet())
+		{
+	        degreePlanList[i] = (entry.getValue().getCourses());
+	        i++;
+		}
+		return degreePlanList;
+	}
+
 	
 	public TreeMap<String,Course> getCourses()
 	{
@@ -211,11 +229,6 @@ public class GraduateSchool
 		return courseList;
 	}
 
-	public String toString()
-	{
-		return getName()+" "
-				+getAbbreviation()+" ";
-	}
 	
 	public TreeMap<String,Student> getStudents()
 	{
@@ -256,6 +269,25 @@ public class GraduateSchool
 	        i++;
 		}
 		return studentList;
+	}
+	
+	public ArrayList<StudentCourses> getStudentCourses()
+	{
+		return this.studentCourses;
+	}
+	
+	public void addStudentCourses (StudentCourses studentCourses)
+	{
+		if (studentCourses != null)
+		{
+			getStudentCourses().add(studentCourses);
+		}
+	}
+	
+	public String toString()
+	{
+		return getName()+" "
+				+getAbbreviation()+" ";
 	}
 	
 }

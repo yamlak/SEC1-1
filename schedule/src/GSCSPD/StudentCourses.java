@@ -81,14 +81,14 @@ public class StudentCourses
 		
 	}
 	
-	public StudentCourses(Student student, String sId, String courseCode, String courseSemester, String grade)
+	public StudentCourses(GraduateSchool gradSchool, String sId, String courseCode, String courseSemester, String grade)
 	{
 		this();
 		this.sId = sId;
 		this.courseCode = courseCode;
 		this.courseSemester = courseSemester;
 		this.grade = grade;
-		student.addStudentCourses(this);
+		gradSchool.addStudentCourses(this);
 	}
 	
 	public String toString()

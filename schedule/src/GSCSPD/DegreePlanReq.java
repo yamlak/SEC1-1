@@ -141,6 +141,7 @@ public class DegreePlanReq
 		this.description = description;
 		this.hours = hours;
 		this.courses = courses;
+		degree.addDegreePlanReq(this);
 	}
 
 	public String toString()

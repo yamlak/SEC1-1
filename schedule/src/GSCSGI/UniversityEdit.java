@@ -109,7 +109,7 @@ public class UniversityEdit extends JPanel {
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnUpdate.setBounds(126, 326, 67, 23);
+		btnUpdate.setBounds(120, 326, 82, 23);
 		btnUpdate.setEnabled(false);
 		add(btnUpdate);
 		
@@ -198,12 +198,10 @@ public class UniversityEdit extends JPanel {
 		semesterListModel.addElement(semesterEntry.getValue());
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(400, 161, 158, 138);
+		scrollPane.setBounds(400, 161, 188, 138);
 		add(scrollPane);
 		JList semesterList = new JList(semesterListModel);
 		scrollPane.setViewportView(semesterList);
-		
-		semesterList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		semesterList.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e) {
 				if (semesterList.getSelectedValue() != null ) 
