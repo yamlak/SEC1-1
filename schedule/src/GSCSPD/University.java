@@ -21,11 +21,11 @@ public class University
 	private TreeMap<String, GraduateSchool> gradSchools;
 	private TreeMap<String, Semester> semesters;
 	private TreeMap<String, Faculty> faculties;
-	private TreeMap<String, Degree> degrees;
-	private TreeMap<String, Department> departments;
+	
+
 	private TreeMap<String, Course> courses;
 	private TreeMap<String, Student> students;
-	private TreeMap<String, DegreePlanReq> degreePlan;
+	
 	/**
 	 * name of the university
 	 */
@@ -76,11 +76,10 @@ public class University
 		this.setName(name);
 		faculties = new TreeMap<String, Faculty>();
 		//private TreeMap<String, Semester> semesters;
-		departments = new TreeMap<String, Department>();
-		degrees = new TreeMap<String, Degree>();
+		
 		courses = new TreeMap<String, Course>();
 		students = new TreeMap<String, Student>();
-		degreePlan = new TreeMap<String, DegreePlanReq>();
+		
 	//	semesters = new TreeMap <String, Semester>();
 		//classRooms = new TreeMap <String, ClassRoom>();
 	//	gradSchools = new TreeMap <String, GraduateSchool>();
@@ -94,11 +93,11 @@ public class University
 			gradSchools = new TreeMap <String, GraduateSchool>();
 			faculties = new TreeMap<String, Faculty>();
 			//private TreeMap<String, Semester> semesters;
-			departments = new TreeMap<String, Department>();
-			degrees = new TreeMap<String, Degree>();
+		
+			
 			courses = new TreeMap<String, Course>();
 			students = new TreeMap<String, Student>();
-			degreePlan = new TreeMap<String, DegreePlanReq>();
+			
 			
 	//	throw new UnsupportedOperationException();
 	}
@@ -243,15 +242,8 @@ public class University
 		return facultyList;
 	}
 	
-	public TreeMap<String,Degree> getDegrees()
-	{
-		return this.degrees;
-	}
 	
-	public TreeMap<String,DegreePlanReq> getDegreePlans()
-	{
-		return this.degreePlan;
-	}
+	
 	/**
 	 * Adds the Degree to the grad school.
 	 * 
@@ -260,46 +252,11 @@ public class University
 	 */
 	
 	
-	public void addDegree(Degree degree)
-	{
-		if (degree != null)
-		{
-			getDegrees().put(degree.getCode(), degree);
-		}
-	}
 	
 	
-	public void removeDegree(Degree degree)
-	{
-		if (degree != null)
-		{
-			getDegrees().remove(degree.getCode(), degree);
-		}
-	}
 	
-	public String[] getDegreeList()
-	{
-		String[] degreeList = new String[getDegrees().entrySet().size()]; 
-		int i =0;
-		for (Entry<String, Degree> entry : getDegrees().entrySet())
-		{
-	        degreeList[i] = (entry.getValue().getCode());
-	        i++;
-		}
-		return degreeList;
-	}
 	
-	public String[] getDegreePlanList()
-	{
-		String[] degreePlanList = new String[getDegrees().entrySet().size()]; 
-		int i =0;
-		for (Entry<String, DegreePlanReq> entry : getDegreePlans().entrySet())
-		{
-	        degreePlanList[i] = (entry.getValue().getCourses());
-	        i++;
-		}
-		return degreePlanList;
-	}
+	
 
 	
 	public TreeMap<String,Course> getCourses()
@@ -339,7 +296,7 @@ public class University
 		int i =0;
 		for (Entry<String, Course> entry : getCourses().entrySet())
 		{
-	        courseList[i] = (entry.getValue().getName());
+	        courseList[i] = (entry.getValue().getNumber());
 	        i++;
 		}
 		return courseList;
@@ -394,6 +351,24 @@ public class University
 	public void openUniversity()
 	{
 		UniversityDM.loadUniversity(this);
+	}
+
+	public GraduateSchool findGradscool(String gSchool) {
+		// TODO Auto-generated method stub
+		return getGradSchools().get(gSchool);
+	}
+	
+	public Degree findDegree(String degree) {
+		// TODO Auto-generated method stub
+		for (Entry<String, GraduateSchool> gradschool: getGradSchools().entrySet())
+		{
+			
+			if(gradschool.getValue().getDegrees().get(degree)!= null)
+			{
+				return gradschool.getValue().getDegrees().get(degree); 
+			}
+		}		
+		return null;
 	}
 	
 	

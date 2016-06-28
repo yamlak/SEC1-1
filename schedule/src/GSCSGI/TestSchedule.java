@@ -17,9 +17,7 @@ public static Student student;
 	public static void main(String[] args) {
 		
 		myUniversity = new University();
-		gradSchool = new GraduateSchool();
-		degree = new Degree();
-		student = new Student();
+		
         String studentFileName = "data/STU.DUMP.csv";
 		myUniversity.openUniversity();;
 		GSCSJFrame.run(myUniversity,gradSchool);
@@ -29,13 +27,17 @@ public static Student student;
 		  		 
 		  SemesterDM.loadSemester(myUniversity);
 		  GradSchoolDM.loadGraduateSchool(myUniversity);
-		  FacultyDM.loadFaculty(gradSchool); 
-		  DegreeDM.loadDegree(gradSchool);
+		  //FacultyDM.loadFaculty(myUniversity); 
+		  DegreeDM.loadDegree(myUniversity);
+		 // System.out.println(myUniversity.findGradscool("GSECS"));
+		 // System.out.println(myUniversity.findDegree("MSCS.SFTW.ENG"));
 		  CourseDM.loadCourse(myUniversity, "data/TestDataCourses.csv"); 
-		  DegreePlanReqDM.loadDegreePlanReq(degree);
+		  
+		  DegreePlanReqDM.loadDegreePlanReq(myUniversity, "data/TestDataDegreePlanReq.csv");
 		 // StudentDM.loadStudent(gradSchool,studentFileName);
 		 // StudentCoursesDM.loadStudentCourses(student, "data/STC.DUMP.csv");
 		  printUniversity();
+		  
 
 	}
 	/**
@@ -53,6 +55,23 @@ public static Student student;
 		{
 	        System.out.println(entry.getValue().toString());
 	        
+	        System.out.println("==============");
+			System.out.println("Degree");
+			System.out.println("==============");
+			for (Entry<String, Degree> degreeEntry : entry.getValue().getDegrees().entrySet()) 
+			{
+		        System.out.println(degreeEntry.getKey().toString());
+		        System.out.println("==============");
+				System.out.println("DegreePlanReq"); 
+				System.out.println("==============");
+				for (DegreePlanReq degreePlan : degreeEntry.getValue().getDegreePlanReqs())
+					
+				{
+			        System.out.println(degreePlan.toString());
+				}
+		        
+			}
+	        
 		}
 		System.out.println("==============");
 		System.out.println("Semester");
@@ -64,18 +83,11 @@ public static Student student;
 		System.out.println("==============");
 		System.out.println("Faculty");
 		System.out.println("==============");
-		for (Entry<String, Faculty> entry : gradSchool.getFaculties().entrySet())
+		for (Entry<String, Faculty> entry : myUniversity.getFaculties().entrySet())
 		{
 	        System.out.println(entry.getValue().toString());
 		}
-		System.out.println("==============");
-		System.out.println("Degree");
-		System.out.println("==============");
-		for (Entry<String, Degree> entry : gradSchool.getDegrees().entrySet()) 
-		{
-	        System.out.println(entry.getValue().toString());
-	        
-		}
+		
 		
 		System.out.println("==============");
 		System.out.println("Course");
@@ -86,16 +98,9 @@ public static Student student;
 	        
 		}
 		
-		System.out.println("==============");
-		System.out.println("DegreePlanReq");
-		System.out.println("==============");
-		for (DegreePlanReq degreePlan : degree.getDegreePlanReqs())
-			
-		{
-	        System.out.println(degreePlan.toString());
-		}
 		
-		System.out.println("==============");
+		
+	/*	System.out.println("==============");
 		System.out.println("Student"); 
 		System.out.println("==============");
 		for (Entry<String, Student> entry : gradSchool.getStudents().entrySet()) 
@@ -111,7 +116,7 @@ public static Student student;
 			
 		{
 	        System.out.println(studentCourse.toString());
-		}
+		}*/
 	}
 
 }

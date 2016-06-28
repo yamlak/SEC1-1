@@ -23,7 +23,7 @@ public class Degree
 	/**
 	 * Degree program under grad school . This shows different departments available in this university
 	 */
-	private String gradSchool;
+	private GraduateSchool gradSchool;
 	/**
 	 * credit hour is a unit that gives weight to the value, level or time requirement of an academic course taken at a educational institution.
 	 */
@@ -57,7 +57,7 @@ public class Degree
 		this.code = code;
 	}
 
-	public String getGradSchool()
+	public GraduateSchool getGradSchool()
 	{
 		return this.gradSchool;
 	}
@@ -66,7 +66,7 @@ public class Degree
 	 * 
 	 * @param department
 	 */
-	public void setGradSchool(String gradSchool)
+	public void setGradSchool(GraduateSchool gradSchool)
 	{
 		this.gradSchool = gradSchool;
 	}
@@ -96,19 +96,19 @@ public class Degree
 	 * @param code
 	 * @param name
 	 */
-	public Degree(GraduateSchool gradSchool, String code, String gSchool,String name, String forecast)
+	public Degree(University univ, String code, String gSchool,String name, String forecast)
 	{
 		this();
 		this.code = code;
-		this.gradSchool = gSchool;
+		this.gradSchool = univ.findGradscool(gSchool);
 		this.name = name;
 		this.forecast = forecast;
-		degreePlanReq = new ArrayList<DegreePlanReq>();
+		//degreePlanReq = new ArrayList<DegreePlanReq>();
 		gradSchool.addDegree(this);
 		
 	}
 	
-	
+
 	
 	public ArrayList<DegreePlanReq> getDegreePlanReqs()
 	{

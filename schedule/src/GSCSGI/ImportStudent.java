@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JScrollPane;
 
 
 public class ImportStudent extends JPanel {
@@ -55,10 +56,13 @@ public class ImportStudent extends JPanel {
 	//	tableModel.setColumnIdentifiers(entry.getValue());
 		
 		listModel.addElement(entry.getValue());}
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(56, 48, 368, 212);
+		add(scrollPane);
 		//JList gradSchoolList =  new JList(listModel);
 		JList list = new JList(listModel);
-		list.setBounds(56, 48, 465, 212);
-		add(list);
+		scrollPane.setViewportView(list);
 		
 		JLabel lblImportedStudentList = new JLabel("Imported Student List");
 		lblImportedStudentList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 14));

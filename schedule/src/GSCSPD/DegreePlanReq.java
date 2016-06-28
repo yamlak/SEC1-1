@@ -8,12 +8,12 @@ import java.util.*;
 public class DegreePlanReq
 {
 
-	Degree degree;
+	
 	Course course;
 	/**
 	 * name of the degree requirements
 	 */
-	private String degreeCode;
+	private Degree degree;
 	/**
 	 * number of hours the course is offered
 	 */
@@ -35,19 +35,6 @@ public class DegreePlanReq
 	 */
 	private String prerequisites;
 
-	public String getDegreeCode()
-	{
-		return this.degreeCode;
-	}
-
-	/**
-	 * 
-	 * @param name
-	 */
-	public void setDegreeCode(String degreeCode)
-	{
-		this.degreeCode = degreeCode;
-	}
 
 	public int getHours()
 	{
@@ -90,7 +77,19 @@ public class DegreePlanReq
 	{
 		this.courses = courses;
 	}
+	public Degree getDegree()
+	{
+		return this.degree;
+	}
 
+	/**
+	 * 
+	 * @param coreCourse
+	 */
+	public void setDegree(Degree degree)
+	{
+		this.degree= degree;
+	}
 	public String getDescriptions()
 	{
 		return this.description;
@@ -134,19 +133,22 @@ public class DegreePlanReq
 	
 	}
 	
-	public DegreePlanReq(Degree degree, String degreeCode, String description, int hours, String type, String courses)
+	public DegreePlanReq(University univ, String degreeCode, String description, int hours, String type, String courses)
 	{
 		this();
-		this.degreeCode = degreeCode;
+	//	System.out.println("*" + degreeCode + "*");
+		this.degree = univ.findDegree(degreeCode);
 		this.description = description;
 		this.hours = hours;
 		this.courses = courses;
+		System.out.println(" constrac " + degree.toString());
+		//setDegree(degree);
 		degree.addDegreePlanReq(this);
 	}
 
 	public String toString()
 	{
-		return getDegreeCode()+" "
+		return getDegree().toString()+" "
 				+getDescriptions()+" "
 				+getHours() + " "
 				+getCourses();

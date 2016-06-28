@@ -15,7 +15,7 @@ public class GraduateSchool
 	private TreeMap<String, Department> departments;
 	private TreeMap<String, Course> courses;
 	private TreeMap<String, Student> students;
-	private TreeMap<String, DegreePlanReq> degreePlan;
+	
 	//ArrayList<Department> departments;
 	//ArrayList<Faculty> faculty = new ArrayList<Faculty>();
 	//ArrayList<course> course;
@@ -68,7 +68,7 @@ public class GraduateSchool
 		degrees = new TreeMap<String, Degree>();
 		courses = new TreeMap<String, Course>();
 		students = new TreeMap<String, Student>();
-		degreePlan = new TreeMap<String, DegreePlanReq>();
+		
 		
 	}
 	public GraduateSchool(University university, String abbreviation, String name)
@@ -81,7 +81,7 @@ public class GraduateSchool
 		degrees = new TreeMap<String, Degree>();
 		courses = new TreeMap<String, Course>();
 		students = new TreeMap<String, Student>();
-		degreePlan = new TreeMap<String, DegreePlanReq>();
+		
 		university.addGradSchools(this);
 		
 	}
@@ -132,10 +132,7 @@ public class GraduateSchool
 		return this.degrees;
 	}
 	
-	public TreeMap<String,DegreePlanReq> getDegreePlans()
-	{
-		return this.degreePlan;
-	}
+
 	/**
 	 * Adds the Degree to the grad school.
 	 * 
@@ -149,6 +146,7 @@ public class GraduateSchool
 		if (degree != null)
 		{
 			getDegrees().put(degree.getCode(), degree);
+			//System.out.println("*"+ degree.getCode()+ "*");
 		}
 	}
 	
@@ -173,17 +171,6 @@ public class GraduateSchool
 		return degreeList;
 	}
 	
-	public String[] getDegreePlanList()
-	{
-		String[] degreePlanList = new String[getDegrees().entrySet().size()]; 
-		int i =0;
-		for (Entry<String, DegreePlanReq> entry : getDegreePlans().entrySet())
-		{
-	        degreePlanList[i] = (entry.getValue().getCourses());
-	        i++;
-		}
-		return degreePlanList;
-	}
 
 	
 	public TreeMap<String,Course> getCourses()

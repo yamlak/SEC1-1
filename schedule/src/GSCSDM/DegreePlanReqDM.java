@@ -14,21 +14,20 @@ public class DegreePlanReqDM {
 	 * @param store
 	 */
 
-	public static void loadDegreePlanReq(Degree degree)
+	public static void loadDegreePlanReq(University univ, String fileName)
 	{
 		
-		String fileName ="data/TestDataDegreePlanReq.csv";
+	//	String fileName ="data/TestDataDegreePlanReq.csv";
 		String line = null;
 		String[] token;
 		String[] token2;
-		DegreePlanReq degreePlanReq = new DegreePlanReq();
+		DegreePlanReq degreePlanReq ;
 		
 		 
 				
 	    try {
 	        // FileReader reads text files in the default encoding.
-	        FileReader fileReader = 
-	            new FileReader(fileName);
+	        FileReader fileReader = new FileReader(fileName);
 
 	        // Always wrap FileReader in BufferedReader.
 	        BufferedReader bufferedReader = 
@@ -40,13 +39,15 @@ public class DegreePlanReqDM {
 	        {
 	        		//split data by comma
 		        	token = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-		        	//token2= token[4].replaceAll("\\s","").split(",");
+		        	token[4]=token[4].replace("\"", "");
+		        	token2= token[4].replaceAll("^\"/\'s","").split(",");
 		        	//System.out.println("token length"    + "    "   +token2.length);
-		        	//for(int i = 0; i<token2.length;i++)
-		        	//{
-		        	degreePlanReq = new DegreePlanReq(degree, token[0],token[1],Integer.parseInt(token[2]),token[3], token[4]);
-		        	//}
-		        	degree.addDegreePlanReq(degreePlanReq);		        	
+		        	for(int i = 0; i<token2.length;i++)
+		        	{
+		        		//System.out.println("token length"    + "    "   +token2[i]);
+		        	degreePlanReq = new DegreePlanReq(univ, token[0],token[1],Integer.parseInt(token[2]),token[3], token2[i]);
+		        	}
+		        			        	
 		        				        	
 		     }    
 	        // Always close files.

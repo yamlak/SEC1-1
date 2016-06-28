@@ -2,6 +2,7 @@ package GSCSGI;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import GSCSPD.University;
 import GSCSPD.GraduateSchool; 
@@ -10,6 +11,7 @@ import GSCSPD.DegreePlanReq;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -19,6 +21,8 @@ import java.util.ArrayList;
 import java.util.Map.Entry;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 
 public class DegreeEdit extends JPanel {
@@ -27,6 +31,10 @@ public class DegreeEdit extends JPanel {
 	private JTextField txtForecast;
 	private JComboBox comboBox;
     private ArrayList<String> courses;
+    private JButton btnAdd;
+	private JButton btnUpdate;
+	private JButton btnDelete; 
+	private DefaultListModel listModel;
 	/**
 	 * Create the panel.
 	 */
@@ -96,7 +104,7 @@ public class DegreeEdit extends JPanel {
 				}
 				
 				degree.setName(txtName.getText());
-				degree.setGradSchool(comboBox.getSelectedItem().toString());
+				degree.setGradSchool((GraduateSchool)comboBox.getSelectedItem());
 							
 				currentFrame.getContentPane().removeAll();
 				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ,gradSchool));
@@ -125,7 +133,7 @@ public class DegreeEdit extends JPanel {
 		lblDegreePlanRequirment.setBounds(372, 56, 161, 14);
 		add(lblDegreePlanRequirment);
 		
-		JButton btnAdd = new JButton("Add");
+	/*	JButton btnAdd = new JButton("Add");
 		btnAdd.setBounds(326, 237, 89, 23);
 		add(btnAdd);
 		
@@ -135,6 +143,76 @@ public class DegreeEdit extends JPanel {
 		
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.setBounds(519, 237, 89, 23);
-		add(btnDelete);
+		add(btnDelete);*/
+		listModel = new DefaultListModel();
+		//for (Entry<String, DegreePlanReq> degreePlan : gradSchool.getDegreePlans().entrySet())
+		for (DegreePlanReq degreePlan : degree.getDegreePlanReqs())
+		listModel.addElement(degreePlan);
+		System.out.println(degree.getDegreePlanReqs());
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(326, 73, 282, 156);
+		add(scrollPane);
+JList list = new JList(listModel);
+scrollPane.setViewportView(list);
+list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+list.addListSelectionListener(new ListSelectionListener() {
+	public void valueChanged(ListSelectionEvent arg0) {
+	
+	if (list.getSelectedValue() != null ) 
+	{// System.out.println(list.getSelectedValue()); 
+		btnUpdate.setEnabled(true);
+	}
+	if(list.getSelectedValue() == null  )
+	{
+		btnDelete.setEnabled(false);
+	}
+	else
+	{
+	   btnDelete.setEnabled(true);
+	}
+}
+
+});
+
+btnUpdate = new JButton("Update");
+btnUpdate.setEnabled(false);
+btnUpdate.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		currentFrame.getContentPane().removeAll();
+		currentFrame.getContentPane().add(new DegreeEdit(currentFrame,univ, gradSchool,(Degree)list.getSelectedValue(),false));
+		currentFrame.getContentPane().revalidate();
+	}
+});
+btnUpdate.setBounds(420, 237, 89, 23);
+add(btnUpdate);
+btnUpdate.setEnabled(false);
+
+//JButton
+btnDelete = new JButton("Delete");
+btnDelete.setEnabled(false);
+btnDelete.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		gradSchool.removeDegree((Degree)list.getSelectedValue());
+		listModel.removeElement(list.getSelectedValue());
+	}
+});
+btnDelete.setBounds(519, 237, 89, 23);
+add(btnDelete);
+btnUpdate.setEnabled(false);
+
+
+ btnAdd = new JButton("Add");
+btnAdd.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		currentFrame.getContentPane().removeAll();
+		currentFrame.getContentPane().add(new DegreeEdit(currentFrame,univ, gradSchool,new Degree(),true));
+		currentFrame.getContentPane().revalidate();
+	}
+});
+btnAdd.setBounds(326, 237, 89, 23);
+add(btnAdd);
+		
+		//list.setBounds(326, 73, 282, 156);
+		//add(list);
 	}
 }

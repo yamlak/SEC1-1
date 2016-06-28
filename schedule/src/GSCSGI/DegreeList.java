@@ -44,7 +44,7 @@ public class DegreeList extends JPanel {
 		
 		//get all Degrees
 				listModel = new DefaultListModel();
-				for (Entry<String, Degree> degreeEntry : gradSchool.getDegrees().entrySet())
+				for (Entry<String, Degree> degreeEntry :gradSchool.getDegrees().entrySet())
 				listModel.addElement(degreeEntry.getValue());
 				JScrollPane scrollPane = new JScrollPane();
 				scrollPane.setBounds(81, 85, 260, 130);

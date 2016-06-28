@@ -14,7 +14,7 @@ package GSCSDM;
 		 * @param store
 		 */
 
-		public static void loadDegree(GraduateSchool gradSchool)
+		public static void loadDegree(University univ)
 		{
 			
 			String fileName ="data/TestDataDegrees.csv";
@@ -40,9 +40,10 @@ package GSCSDM;
 		        		//split data by comma
 			        	token = line.split(",");
 			        	
-			        	degree = new Degree(gradSchool, token[0],token[1],token[2],token[3]);
+			        	degree = new Degree(univ, token[0],token[1],token[2],token[3]);
 			        
-			        	gradSchool.addDegree(degree);
+			        	
+			        	
 			        	
 			        				        	
 			     }    
