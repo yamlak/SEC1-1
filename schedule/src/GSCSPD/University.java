@@ -378,5 +378,10 @@ public class University
 	public Semester findSemester(String semesterName){
 		return getSemesters().get(semesterName);
 	}
+	
+	public Faculty findFaculty(String lastName) {
+		return getFaculties().get(lastName);
+	}
+	
 
 }
