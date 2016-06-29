@@ -84,11 +84,11 @@ setLayout(null);
 				gradSchool.setName(textField.getText());
 							
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ, gradSchool));
+				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
 				currentFrame.getContentPane().revalidate();
 //				univ.setName(textField.getText());
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ, gradSchool));
+				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
 				currentFrame.getContentPane().revalidate();
 			}
 		});

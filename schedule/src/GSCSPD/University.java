@@ -25,6 +25,7 @@ public class University
 
 	private TreeMap<String, Course> courses;
 	private TreeMap<String, Student> students;
+	private ArrayList<StudentCourses> studentCourses;
 	
 	/**
 	 * name of the university
@@ -143,22 +144,18 @@ public class University
 		return semesterList;
 	}
 	
-	
-	/*ArrayList<GraduateSchool> gSchool = new ArrayList<GraduateSchool>();
-	
-	public void addGraduateSchool(GraduateSchool graduateSchool )
+	public ArrayList<StudentCourses> getStudentCourses()
 	{
-		this.gSchool.add(graduateSchool);
+		return this.studentCourses;
 	}
 	
-	public void getGraduateSchool()
+	public void addStudentCourses (StudentCourses studentCourses)
 	{
-		
-			for(GraduateSchool gs: gSchool)
-			System.out.println(gs.getName() + " " + gs.getAbbreviation());
-			
-		
-	}*/
+		if (studentCourses != null)
+		{
+			getStudentCourses().add(studentCourses);
+		}
+	}
 	
 	public TreeMap<String,GraduateSchool> getGradSchools()
 	{
@@ -371,6 +368,15 @@ public class University
 		return null;
 	}
 	
+	public Course findCourse(String courseNumber) {
+		return getCourses().get(courseNumber);
+	}
 	
+	public Student findStudent(String sId){
+		return getStudents().get(sId);
+	}
+	public Semester findSemester(String semesterName){
+		return getSemesters().get(semesterName);
+	}
 
 }

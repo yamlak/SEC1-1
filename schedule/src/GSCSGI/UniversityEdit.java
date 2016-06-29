@@ -40,7 +40,7 @@ public class UniversityEdit extends JPanel {
 	/**
 	 * Create the panel with passed current frame and store.
 	 */
-	public UniversityEdit(JFrame currentFrame, University univ, GraduateSchool gradSchool) {
+	public UniversityEdit(JFrame currentFrame, University univ) {
 		
 		setLayout(null);
 		
@@ -183,7 +183,7 @@ public class UniversityEdit extends JPanel {
 		btnAdd_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new SemesterEdit(currentFrame, univ, gradSchool, new Semester(),true));
+				currentFrame.getContentPane().add(new SemesterEdit(currentFrame, univ, new Semester(),true));
 				currentFrame.getContentPane().revalidate();
 			}
 		});
@@ -224,7 +224,7 @@ public class UniversityEdit extends JPanel {
 		btnUpdate_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new SemesterEdit(currentFrame, univ, gradSchool,(Semester)semesterList.getSelectedValue(),false));
+				currentFrame.getContentPane().add(new SemesterEdit(currentFrame, univ, (Semester)semesterList.getSelectedValue(),false));
 				currentFrame.getContentPane().revalidate();
 			}
 		});

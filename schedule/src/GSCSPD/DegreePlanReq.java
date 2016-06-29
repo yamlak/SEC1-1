@@ -9,7 +9,7 @@ public class DegreePlanReq
 {
 
 	
-	Course course;
+	private ArrayList<Course> course;
 	/**
 	 * name of the degree requirements
 	 */
@@ -25,7 +25,7 @@ public class DegreePlanReq
 	/**
 	 * courses are mandatory to finish a degree
 	 */
-	private String courses;
+	//private String courses;
 	/**
 	 * from a list of electives, courses are chosen by students based on requirement
 	 */
@@ -64,19 +64,20 @@ public class DegreePlanReq
 		this.type = type;
 	}
 
-	public String getCourses()
+	public ArrayList<Course> getCourses()
 	{
-		return this.courses;
+		return this.course;
 	}
 
 	/**
 	 * 
 	 * @param coreCourse
 	 */
-	public void setCourses(String courses)
+	public void setCourses(Course courses)
 	{
-		this.courses = courses;
+		getCourses().add(courses);
 	}
+	
 	public Degree getDegree()
 	{
 		return this.degree;
@@ -130,17 +131,18 @@ public class DegreePlanReq
 
 	public DegreePlanReq()
 	{
-	
+		course = new ArrayList<Course>();
 	}
 	
-	public DegreePlanReq(University univ, String degreeCode, String description, int hours, String type, String courses)
+	public DegreePlanReq(University univ, String degreeCode, String description, int hours, String type)
 	{
 		this();
 	//	System.out.println("*" + degreeCode + "*");
 		this.degree = univ.findDegree(degreeCode);
 		this.description = description;
 		this.hours = hours;
-		this.courses = courses;
+		this.type= type;
+		//this.course = courses;
 		System.out.println(" constrac " + degree.toString());
 		//setDegree(degree);
 		degree.addDegreePlanReq(this);
@@ -148,7 +150,7 @@ public class DegreePlanReq
 
 	public String toString()
 	{
-		return getDegree().toString()+" "
+		return getDegree().getCode().toString()+" "
 				+getDescriptions()+" "
 				+getHours() + " "
 				+getCourses();

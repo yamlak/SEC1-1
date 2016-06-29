@@ -31,7 +31,7 @@ public class CourseList extends JPanel {
 		private JButton btnDelete; 
 		private DefaultListModel listModel;
 	
-	public CourseList(JFrame currentFrame, University univ, GraduateSchool gradSchool) {
+	public CourseList(JFrame currentFrame, University univ) {
 	//	JList list = new JList(listModel);
 		setLayout(null);
 		 
@@ -76,7 +76,7 @@ public class CourseList extends JPanel {
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new CourseEdit(currentFrame,univ, gradSchool,(Course)list.getSelectedValue(),false));
+				currentFrame.getContentPane().add(new CourseEdit(currentFrame,univ,(Course)list.getSelectedValue(),false));
 				currentFrame.getContentPane().revalidate();
 			}
 		});
@@ -102,7 +102,7 @@ public class CourseList extends JPanel {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new CourseEdit(currentFrame,univ, gradSchool,new Course(),true));
+				currentFrame.getContentPane().add(new CourseEdit(currentFrame,univ,new Course(),true));
 				currentFrame.getContentPane().revalidate();
 			}
 		});

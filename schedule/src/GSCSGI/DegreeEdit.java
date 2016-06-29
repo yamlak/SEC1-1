@@ -107,10 +107,10 @@ public class DegreeEdit extends JPanel {
 				degree.setGradSchool((GraduateSchool)comboBox.getSelectedItem());
 							
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ,gradSchool));
+				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
 				currentFrame.getContentPane().revalidate();
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new DegreeList(currentFrame,univ,gradSchool));
+				currentFrame.getContentPane().add(new GradSchoolEdit(currentFrame,univ,gradSchool,isAdd));
 				currentFrame.getContentPane().revalidate();
 			}
 		});
@@ -179,7 +179,7 @@ btnUpdate.setEnabled(false);
 btnUpdate.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
 		currentFrame.getContentPane().removeAll();
-		currentFrame.getContentPane().add(new DegreeEdit(currentFrame,univ, gradSchool,(Degree)list.getSelectedValue(),false));
+		currentFrame.getContentPane().add(new DegreePlanList(currentFrame,univ, gradSchool));
 		currentFrame.getContentPane().revalidate();
 	}
 });

@@ -8,58 +8,58 @@ import java.util.*;
 public class StudentCourses
 {
 
-	Semester semester;
-	Course course;
-	Student student;
+	private Semester semester;
+	private Course course;
+	private Student student;
 	
-	private String sId;
-	private String courseCode;
-	private String courseSemester;
+	//private String sId;
+	//private String courseCode;
+	//private String courseSemester;
 	/**
 	 * student grades in a course
 	 */
 	private String grade;
 
-	public String getSId()
+	public Student getStudent()
 	{
-		return this.sId;
+		return this.student;
 	}
 
 	/**
 	 * 
 	 * @param id
 	 */
-	public void setSId(String sId)
+	public void setStudent(Student student)
 	{
-		this.sId = sId;
+		this.student = student;
 	}
 
-	public String getCourseCode()
+	public Course getCourse()
 	{
-		return this.courseCode;
-	}
-
-	/**
-	 * 
-	 * @param grade
-	 */
-	public void setCourseCode(String courseCode)
-	{
-		this.courseCode = courseCode;
-	}
-
-	public String getCourseSemester()
-	{
-		return this.courseSemester;
+		return this.course;
 	}
 
 	/**
 	 * 
 	 * @param grade
 	 */
-	public void setCourseSemester(String courseSemester)
+	public void setCourse(Course course)
 	{
-		this.courseSemester = courseSemester;
+		this.course = course;
+	}
+
+	public Semester getSemester()
+	{
+		return this.semester;
+	}
+
+	/**
+	 * 
+	 * @param grade
+	 */
+	public void setSemester(Semester semester)
+	{
+		this.semester = semester;
 	}
 
 	public String getGrade()
@@ -81,21 +81,21 @@ public class StudentCourses
 		
 	}
 	
-	public StudentCourses(GraduateSchool gradSchool, String sId, String courseCode, String courseSemester, String grade)
+	public StudentCourses(University univ, String sId, String courseCode, String courseSemester, String grade)
 	{
 		this();
-		this.sId = sId;
-		this.courseCode = courseCode;
-		this.courseSemester = courseSemester;
+		this.student = univ.findStudent(sId);
+		this.course = univ.findCourse(courseCode);
+		this.semester = univ.findSemester(courseSemester);
 		this.grade = grade;
-		gradSchool.addStudentCourses(this);
+		univ.addStudentCourses(this);
 	}
 	
 	public String toString()
 	{
-		return getSId()+" "
-				+getCourseCode()+" "
-				+getCourseSemester()+ " "
+		return getStudent().getId()+" "
+				+getCourse().getNumber()+" "
+				+getSemester().getName()+ " "
 				+getGrade();
 	}
 

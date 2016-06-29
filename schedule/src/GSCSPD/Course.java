@@ -10,7 +10,7 @@ public class Course
 
 	GraduateSchool graduateSchool;
 	ArrayList<Section> section;
-	ArrayList<DegreePlanReq> degreeRequirements;
+	ArrayList<DegreePlanReq> degreePlanReq;
 	ArrayList<StudentCourses> studentCourses;
 	/**
 	 * identity number of the course
@@ -97,14 +97,16 @@ public class Course
 		this.description = description; 
 		this.creditHours = creditHourse;
 		univ.addCourses(this);
+		
+		
 
 	}
 	
 	public String toString()
 	{
 		return getNumber()+" "
-				+getName()+" "
-				+getDescription()+" "
+			//	+getName()+" "
+			//	+getDescription()+" "
 				+getCreditHours();
 	}
 }

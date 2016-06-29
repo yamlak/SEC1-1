@@ -4,18 +4,18 @@ import java.util.*;
 
 /**
  * A person who is studying in the university
- */
+ */ 
 public class Student
 {
 
-	GraduateSchool graduateSchool;
+	University univ;
 	ArrayList<StudentCourses> studentCourses;
 	/**
 	 * unique identification number of the student
 	 */
 	private String id;
 	
-	private String degreeCode;
+	private Degree degree;
 	/**
 	 * name of the graduationDate
 	 */
@@ -36,18 +36,18 @@ public class Student
 		this.id = id;
 	}
 
-	public String getDegreeCode()
+	public Degree getDegree()
 	{
-		return this.degreeCode;
+		return this.degree;
 	}
 
 	/**
 	 * 
 	 * @param name
 	 */
-	public void setDegreeCode(String degreeCode)
+	public void setDegree(Degree degree)
 	{
-		this.degreeCode = degreeCode;
+		this.degree = degree;
 	}
 	
 	public String getGraduationDate()
@@ -74,13 +74,13 @@ public class Student
 	 * @param id
 	 * @param name
 	 */
-	public Student(GraduateSchool gradSchool, String id, String degreeCode, String graduationDate)
+	public Student(University univ, String id, String degreeCode, String graduationDate)
 	{
 		this();
 		this.id = id;
-		this.degreeCode = degreeCode;
+		this.degree = univ.findDegree(degreeCode);
 		this.graduationDate = graduationDate;
-		gradSchool.addStudents(this);
+		univ.addStudents(this);
 	}
 	
 	public ArrayList<StudentCourses> getStudentCourses()
@@ -99,7 +99,7 @@ public class Student
 	public String toString()
 	{
 		return getId()+" "
-				+getDegreeCode()+" "
+				+getDegree().getCode()+" "
 				+getGraduationDate();
 	}
 

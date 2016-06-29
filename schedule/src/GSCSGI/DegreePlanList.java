@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 
-public class DegreeList extends JPanel {
+public class DegreePlanList extends JPanel {
 
 	/**
 	 * Create the panel.
@@ -31,7 +31,7 @@ public class DegreeList extends JPanel {
 		private JButton btnDelete; 
 		private DefaultListModel listModel;
 	
-	public DegreeList(JFrame currentFrame, University univ, GraduateSchool gradSchool) {
+	public DegreePlanList(JFrame currentFrame, University univ, GraduateSchool gradSchool) {
 	//	JList list = new JList(listModel);
 		setLayout(null);
 		 

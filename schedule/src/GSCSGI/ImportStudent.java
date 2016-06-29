@@ -29,7 +29,7 @@ public class ImportStudent extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public ImportStudent(JFrame currentFrame,University univ,GraduateSchool gradSchool) {
+	public ImportStudent(JFrame currentFrame,University univ) {
 		String fileName;
 		setLayout(null);
 
@@ -42,20 +42,21 @@ public class ImportStudent extends JPanel {
 			fileName = fc.getSelectedFile().toString();
 			File selectedFile = fc.getSelectedFile();
 		
-		StudentDM.loadStudent(gradSchool, fileName);
+		StudentDM.loadStudent(univ, fileName);
 		}
 		tableModel = new DefaultTableModel();
 		listModel = new DefaultListModel();
 		System.out.println("==============");
 		System.out.println("Student"); 
 		System.out.println("==============");
-		for (Entry<String, Student> entry : gradSchool.getStudents().entrySet()) 
+		for (Entry<String, Student> entry : univ.getStudents().entrySet()) 
 		{
 	        System.out.println(entry.getValue().toString());
 	        
 	//	tableModel.setColumnIdentifiers(entry.getValue());
 		
-		listModel.addElement(entry.getValue());}
+		listModel.addElement(entry.getValue());
+		}
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(56, 48, 368, 212);
@@ -72,7 +73,7 @@ public class ImportStudent extends JPanel {
 		btnImportstudentcourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new ImportStudentCourse(currentFrame,univ,gradSchool));
+				currentFrame.getContentPane().add(new ImportStudentCourse(currentFrame,univ));
 				currentFrame.getContentPane().revalidate();
 			}
 		});

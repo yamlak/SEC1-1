@@ -39,13 +39,14 @@ public class DegreePlanReqDM {
 	        {
 	        		//split data by comma
 		        	token = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
+		        	degreePlanReq = new DegreePlanReq(univ, token[0],token[1],Integer.parseInt(token[2]),token[3]);
 		        	token[4]=token[4].replace("\"", "");
 		        	token2= token[4].replaceAll("^\"/\'s","").split(",");
 		        	//System.out.println("token length"    + "    "   +token2.length);
 		        	for(int i = 0; i<token2.length;i++)
 		        	{
 		        		//System.out.println("token length"    + "    "   +token2[i]);
-		        	degreePlanReq = new DegreePlanReq(univ, token[0],token[1],Integer.parseInt(token[2]),token[3], token2[i]);
+		        	degreePlanReq.setCourses(univ.findCourse(token2[i]));
 		        	}
 		        			        	
 		        				        	

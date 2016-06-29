@@ -27,7 +27,7 @@ public class ImportStudentCourse extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public ImportStudentCourse(JFrame currentFrame,University univ,GraduateSchool gradSchool) {
+	public ImportStudentCourse(JFrame currentFrame,University univ) {
 		String fileName;
 		setLayout(null);
 
@@ -40,14 +40,14 @@ public class ImportStudentCourse extends JPanel {
 			fileName = fc.getSelectedFile().toString();
 			File selectedFile = fc.getSelectedFile();
 		
-		StudentCoursesDM.loadStudentCourses(gradSchool, fileName);
+		StudentCoursesDM.loadStudentCourses(univ, fileName);
 		}
 		tableModel = new DefaultTableModel();
 		listModel = new DefaultListModel();
 		System.out.println("==============");
 		System.out.println("StudentCourses");
 		System.out.println("==============");
-		for (StudentCourses studentCourse : gradSchool.getStudentCourses())
+		for (StudentCourses studentCourse : univ.getStudentCourses())
 		{
 	        System.out.println(studentCourse.toString());
 		

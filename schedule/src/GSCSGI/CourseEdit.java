@@ -30,7 +30,7 @@ public class CourseEdit extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public CourseEdit(JFrame currentFrame, University univ, GraduateSchool gradSchool, Course course, boolean isAdd ) {
+	public CourseEdit(JFrame currentFrame, University univ, Course course, boolean isAdd ) {
 
 		setLayout(null);
 		/*courses = new ArrayList<String>();
@@ -105,10 +105,10 @@ public class CourseEdit extends JPanel {
 				course.setDescription(txtDescription.getText());				
 							
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ,gradSchool));
+				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
 				currentFrame.getContentPane().revalidate();
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new CourseList(currentFrame,univ,gradSchool));
+				currentFrame.getContentPane().add(new CourseList(currentFrame,univ));
 				currentFrame.getContentPane().revalidate();
 			}
 		});

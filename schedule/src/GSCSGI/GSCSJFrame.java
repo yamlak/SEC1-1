@@ -24,7 +24,7 @@ public class GSCSJFrame extends JFrame {
 	/**
 	 * Create the frame with passed store.
 	 */
-	public GSCSJFrame(University univ, GraduateSchool gradSchool) {
+	public GSCSJFrame(University univ) {
 		currentFrame = this;
 		//GraduateSchool gradSchool = new GraduateSchool() ;
 		
@@ -44,7 +44,7 @@ public class GSCSJFrame extends JFrame {
 		mntmUniversity.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-				getContentPane().add(new UniversityEdit(currentFrame,univ, gradSchool));
+				getContentPane().add(new UniversityEdit(currentFrame,univ));
 				getContentPane().revalidate();
 			}
 		});
@@ -56,7 +56,7 @@ public class GSCSJFrame extends JFrame {
 		mntmDegree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-				getContentPane().add(new DegreeList(currentFrame,univ,gradSchool));
+				//getContentPane().add(new DegreeList(currentFrame,univ,gradSchool));
 				getContentPane().revalidate();
 			}
 		});
@@ -78,7 +78,7 @@ public class GSCSJFrame extends JFrame {
 		mntmCourse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-				getContentPane().add(new CourseList(currentFrame,univ,gradSchool));
+				getContentPane().add(new CourseList(currentFrame,univ));
 				getContentPane().revalidate();
 			}
 		});
@@ -103,7 +103,7 @@ public class GSCSJFrame extends JFrame {
 		mntmStudent_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					getContentPane().removeAll();
-					getContentPane().add(new ImportStudent(currentFrame,univ,gradSchool));
+					getContentPane().add(new ImportStudent(currentFrame,univ));
 					getContentPane().revalidate();
 			}
 		});
@@ -113,7 +113,7 @@ public class GSCSJFrame extends JFrame {
 		mntmStudentCourse_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-				getContentPane().add(new ImportStudentCourse(currentFrame,univ,gradSchool));
+				getContentPane().add(new ImportStudentCourse(currentFrame,univ));
 				getContentPane().revalidate();
 			}
 		});
@@ -202,7 +202,7 @@ public class GSCSJFrame extends JFrame {
 
 	public static void run(University univ, GraduateSchool gradSchool) {
 		try {
-			JFrame frame = new GSCSJFrame(univ,gradSchool);
+			JFrame frame = new GSCSJFrame(univ);
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
