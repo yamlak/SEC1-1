@@ -13,7 +13,7 @@ public class UniversityDM {
 	public static void loadUniversity(University univ)
 	{
 		
-		String fileName ="data/TestDataGradSchools.csv";
+		String fileName ="data/TestDataUniversityName.csv";
 		String line = null;
 		String[] token;
 			
@@ -35,8 +35,8 @@ public class UniversityDM {
 	        		//split data by comma
 		        	token = line.split(",");
 		        	
-		        	 univ.setName(token[1]); 
-		        	 univ.setAbbreviation(token[0]);
+		        	 univ.setName(token[0]); 
+		        	 univ.setAbbreviation(token[1]);
 		        
 		        		        				        	
 		     }    

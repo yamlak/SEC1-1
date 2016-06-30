@@ -51,7 +51,7 @@ public class ImportStudent extends JPanel {
 		System.out.println("==============");
 		for (Entry<String, Student> entry : univ.getStudents().entrySet()) 
 		{
-	        System.out.println(entry.getValue().toString());
+	       // System.out.println(entry.getValue().toString());
 	        
 	//	tableModel.setColumnIdentifiers(entry.getValue());
 		

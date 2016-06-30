@@ -100,16 +100,16 @@ public static Student student;
 		
 		
 		
-	/*	System.out.println("==============");
+		System.out.println("==============");
 		System.out.println("Student"); 
 		System.out.println("==============");
-		for (Entry<String, Student> entry : gradSchool.getStudents().entrySet()) 
+		for (Entry<String, Student> entry : myUniversity.getStudents().entrySet()) 
 		{
 	        System.out.println(entry.getValue().toString());
 	        
 		}
 		
-		System.out.println("==============");
+	/*	System.out.println("==============");
 		System.out.println("StudentCourses");
 		System.out.println("==============");
 		for (StudentCourses studentCourse : student.getStudentCourses())

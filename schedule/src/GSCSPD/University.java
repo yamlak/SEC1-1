@@ -80,6 +80,7 @@ public class University
 		
 		courses = new TreeMap<String, Course>();
 		students = new TreeMap<String, Student>();
+		//studentCourses = new ArrayList<>();
 		
 	//	semesters = new TreeMap <String, Semester>();
 		//classRooms = new TreeMap <String, ClassRoom>();
@@ -144,7 +145,7 @@ public class University
 		return semesterList;
 	}
 	
-	public ArrayList<StudentCourses> getStudentCourses()
+	/*public ArrayList<StudentCourses> getStudentCourses()
 	{
 		return this.studentCourses;
 	}
@@ -155,7 +156,7 @@ public class University
 		{
 			getStudentCourses().add(studentCourses);
 		}
-	}
+	}*/
 	
 	public TreeMap<String,GraduateSchool> getGradSchools()
 	{
@@ -335,12 +336,12 @@ public class University
 		int i =0;
 		for (Entry<String, Student> entry : getStudents().entrySet())
 		{
-	        studentList[i] = (entry.getValue().getDegreeCode());
+	        studentList[i] = (entry.getValue().getDegree().getCode());
 	        i++;
 		}
 		return studentList;
 	}
-	
+	 
 
 	/**
 	 * Loads the university.
@@ -359,19 +360,29 @@ public class University
 		// TODO Auto-generated method stub
 		for (Entry<String, GraduateSchool> gradschool: getGradSchools().entrySet())
 		{
-			
-			if(gradschool.getValue().getDegrees().get(degree)!= null)
+			if(degree.length()>0)
 			{
-				return gradschool.getValue().getDegrees().get(degree); 
-			}
-		}		
+				if(gradschool.getValue().getDegrees().get(degree)== null)
+					return null;
+					
+				else return gradschool.getValue().getDegrees().get(degree); 
+			
+			}		
+		else 
+			return null;
+		}
 		return null;
 	}
 	
-	public Course findCourse(String courseNumber) {
-		return getCourses().get(courseNumber);
-	}
 	
+	public Course findCourse(String courseNumber) {
+		if(courseNumber.length()>0)
+		{
+			if(getCourses().get(courseNumber)==null) return null;
+			else return getCourses().get(courseNumber);
+	}
+		else return null;
+	}
 	public Student findStudent(String sId){
 		return getStudents().get(sId);
 	}

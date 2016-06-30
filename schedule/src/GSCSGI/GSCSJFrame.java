@@ -107,7 +107,7 @@ public class GSCSJFrame extends JFrame {
 					getContentPane().revalidate();
 			}
 		});
-		mnImport.add(mntmStudent_1);
+		mnImport.add(mntmStudent_1); 
 		
 		JMenuItem mntmStudentCourse_1 = new JMenuItem("Student Course");
 		mntmStudentCourse_1.addActionListener(new ActionListener() {

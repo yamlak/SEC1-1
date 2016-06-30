@@ -99,7 +99,7 @@ public class Student
 	public String toString()
 	{
 		return getId()+" "
-				+getDegree().getCode()+" "
+				+getDegree()+" "
 				+getGraduationDate();
 	}
 

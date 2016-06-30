@@ -47,14 +47,19 @@ public class ImportStudentCourse extends JPanel {
 		System.out.println("==============");
 		System.out.println("StudentCourses");
 		System.out.println("==============");
-		for (StudentCourses studentCourse : univ.getStudentCourses())
+		for (Entry<String, Student> entry : univ.getStudents().entrySet()) 
 		{
-	        System.out.println(studentCourse.toString());
+	        System.out.println(entry.getValue().toString());
+	        
+		
+		for (StudentCourses studentCourse : entry.getValue().getStudentCourses())
+		{
+	      //  System.out.println(studentCourse.toString());
 		
 	//	tableModel.setColumnIdentifiers(entry.getValue());
 		
 		listModel.addElement(studentCourse);}
-		
+		}
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(56, 48, 284, 212);
 		add(scrollPane);

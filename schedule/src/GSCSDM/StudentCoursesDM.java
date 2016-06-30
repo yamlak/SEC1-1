@@ -20,7 +20,7 @@ public class StudentCoursesDM {
 		//String fileName ="data/STC.DUMP.csv";
 		String line = null;
 		String[] token;
-		StudentCourses studentCourses = new StudentCourses();
+		StudentCourses studentCourses;
 		
 		 
 				

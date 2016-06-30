@@ -171,7 +171,6 @@ list.addListSelectionListener(new ListSelectionListener() {
 	   btnDelete.setEnabled(true);
 	}
 }
-
 });
 
 btnUpdate = new JButton("Update");

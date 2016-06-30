@@ -83,14 +83,18 @@ public class StudentCourses
 	
 	public StudentCourses(University univ, String sId, String courseCode, String courseSemester, String grade)
 	{
+		
 		this();
+		if(univ.findCourse(courseCode)!= null)
+		{
 		this.student = univ.findStudent(sId);
+		
 		this.course = univ.findCourse(courseCode);
 		this.semester = univ.findSemester(courseSemester);
 		this.grade = grade;
-		univ.addStudentCourses(this);
+		student.addStudentCourses(this);}
 	}
-	
+
 	public String toString()
 	{
 		return getStudent().getId()+" "
