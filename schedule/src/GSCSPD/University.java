@@ -352,12 +352,16 @@ public class University
 	}
 
 	public GraduateSchool findGradscool(String gSchool) {
-		// TODO Auto-generated method stub
-		return getGradSchools().get(gSchool);
+		
+		if (gSchool.length()>0){
+			if(getGradSchools().get(gSchool)== null) return null;
+			else return getGradSchools().get(gSchool);
+		}
+		else return null;
 	}
 	
 	public Degree findDegree(String degree) {
-		// TODO Auto-generated method stub
+		
 		for (Entry<String, GraduateSchool> gradschool: getGradSchools().entrySet())
 		{
 			if(degree.length()>0)
@@ -384,10 +388,18 @@ public class University
 		else return null;
 	}
 	public Student findStudent(String sId){
-		return getStudents().get(sId);
+		if(sId.length()>0)
+		{ 
+			if(getStudents().get(sId)==null) return null;
+			else return getStudents().get(sId);
+		}
+		else return null;
 	}
 	public Semester findSemester(String semesterName){
-		return getSemesters().get(semesterName);
+		if(semesterName.length()>0){
+			if(getSemesters().get(semesterName)==null) return null;
+			else return getSemesters().get(semesterName);}
+		else return null;
 	}
 	
 	public Faculty findFaculty(String lastName) {

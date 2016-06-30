@@ -10,7 +10,9 @@ import javax.swing.ListSelectionModel;
 import GSCSPD.GraduateSchool;
 import GSCSPD.University;
 import GSCSPD.Degree;
+import GSCSPD.DegreePlanReq;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,6 +22,9 @@ import java.util.Map.Entry;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JComboBox;
 
 public class DegreePlanList extends JPanel {
 
@@ -30,12 +35,16 @@ public class DegreePlanList extends JPanel {
 		private JButton btnUpdate;
 		private JButton btnDelete; 
 		private DefaultListModel listModel;
+		private JTextField txtDegree;
+		private JTextField txtDescription;
+		private JTextField txtType;
+		private JTextField txtHours;
 	
-	public DegreePlanList(JFrame currentFrame, University univ, GraduateSchool gradSchool) {
+	public DegreePlanList(JFrame currentFrame, University univ, GraduateSchool gradSchool,Degree degree, DegreePlanReq degreePlan, boolean isAdd) {
 	//	JList list = new JList(listModel);
 		setLayout(null);
 		 
-		JLabel lblDegreeList = new JLabel("Degree List");
+		JLabel lblDegreeList = new JLabel("Degree Plan Requirment List");
 		lblDegreeList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 14));
 		lblDegreeList.setBounds(143, 34, 153, 30);
 		add(lblDegreeList);
@@ -44,10 +53,10 @@ public class DegreePlanList extends JPanel {
 		
 		//get all Degrees
 				listModel = new DefaultListModel();
-				for (Entry<String, Degree> degreeEntry :gradSchool.getDegrees().entrySet())
-				listModel.addElement(degreeEntry.getValue());
+				for (DegreePlanReq degreePlanEntry :degree.getDegreePlanReqs())
+				listModel.addElement(degreePlanEntry);
 				JScrollPane scrollPane = new JScrollPane();
-				scrollPane.setBounds(81, 85, 260, 130);
+				scrollPane.setBounds(397, 85, 175, 130);
 				add(scrollPane);
 		JList list = new JList(listModel);
 		scrollPane.setViewportView(list);
@@ -81,7 +90,7 @@ public class DegreePlanList extends JPanel {
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnUpdate.setBounds(177, 246, 89, 23);
+		btnUpdate.setBounds(178, 232, 89, 23);
 		add(btnUpdate);
 		btnUpdate.setEnabled(false);
 
@@ -94,7 +103,7 @@ public class DegreePlanList extends JPanel {
 				listModel.removeElement(list.getSelectedValue());
 			}
 		});
-		btnDelete.setBounds(289, 246, 89, 23);
+		btnDelete.setBounds(289, 232, 89, 23);
 		add(btnDelete);
 		btnUpdate.setEnabled(false);
 		
@@ -107,11 +116,88 @@ public class DegreePlanList extends JPanel {
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnAdd.setBounds(51, 246, 89, 23);
+		btnAdd.setBounds(61, 232, 89, 23);
 		add(btnAdd);
 		
+		JLabel lblDegree = new JLabel("Degree");
+		lblDegree.setBounds(51, 68, 66, 14);
+		add(lblDegree);
 		
+		JLabel lblDescription = new JLabel("Description");
+		lblDescription.setBounds(51, 97, 76, 14);
+		add(lblDescription);
 		
+		JLabel lblType = new JLabel("Type");
+		lblType.setBounds(51, 135, 46, 14);
+		add(lblType);
+		
+		JLabel lblHours = new JLabel("Hours");
+		lblHours.setBounds(51, 160, 46, 14);
+		add(lblHours);
+		
+		JLabel lblCourses = new JLabel("Courses");
+		lblCourses.setBounds(51, 185, 66, 14);
+		add(lblCourses);
+		
+		txtDegree = new JTextField(degreePlan.getDegree().getCode());
+		txtDegree.setBounds(163, 65, 190, 20);
+		add(txtDegree);
+		txtDegree.setColumns(10);
+		
+		txtDescription = new JTextField(degreePlan.getDescriptions());
+		txtDescription.setBounds(163, 94, 190, 20);
+		add(txtDescription);
+		txtDescription.setColumns(10);
+		
+		txtType = new JTextField(degreePlan.getType());
+		txtType.setBounds(163, 125, 190, 20);
+		add(txtType);
+		txtType.setColumns(10);
+		
+		txtHours = new JTextField(degreePlan.getHours());
+		txtHours.setBounds(163, 156, 86, 20);
+		add(txtHours);
+		txtHours.setColumns(10);
+		
+		DefaultComboBoxModel tcList = new DefaultComboBoxModel(degreePlan.getCourses().toArray());
+		JComboBox cbCourses = new JComboBox(tcList);		
+		cbCourses.setEditable(true);
+		if(!isAdd) cbCourses.setSelectedItem(tcList);
+		cbCourses.setBounds(163, 182, 190, 20);
+		add(cbCourses);
+		 
+		
+		JButton btnSave = new JButton("Save");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (!isAdd && !degreePlan.getDegree().getCode().equals(txtDegree.getText()))
+				{
+					//degree.removeDegree(degree);
+					degreePlan.setDegree(univ.findDegree(txtDegree.getText()));
+					degree.addDegreePlanReq(degreePlan);
+					
+				}
+				if (isAdd) 
+				{
+					degreePlan.setDegree(univ.findDegree(txtDegree.getText())); 
+					gradSchool.addDegree(degree);
+				}
+				degreePlan.setCourses(univ.findCourse(cbCourses.getSelectedItem().toString()));
+				degreePlan.setType(txtType.getText());
+				degreePlan.setDescriptions(txtDescription.getText());
+				//degreePlan.setHours(txtHours.getText());
+				//degree.setGradSchool((GraduateSchool)comboBox.getSelectedItem());
+							
+				currentFrame.getContentPane().removeAll();
+				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
+				currentFrame.getContentPane().revalidate();
+				currentFrame.getContentPane().removeAll();
+				currentFrame.getContentPane().add(new GradSchoolEdit(currentFrame,univ,gradSchool,isAdd));
+				currentFrame.getContentPane().revalidate();
+			}
+		});
+		btnSave.setBounds(61, 266, 89, 23);
+		add(btnSave);
 		
 	}
 

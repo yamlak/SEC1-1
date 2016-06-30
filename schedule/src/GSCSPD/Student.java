@@ -77,10 +77,11 @@ public class Student
 	public Student(University univ, String id, String degreeCode, String graduationDate)
 	{
 		this();
+		if(univ.findDegree(degreeCode)!=null){
 		this.id = id;
 		this.degree = univ.findDegree(degreeCode);
 		this.graduationDate = graduationDate;
-		univ.addStudents(this);
+		univ.addStudents(this);}
 	}
 	
 	public ArrayList<StudentCourses> getStudentCourses()

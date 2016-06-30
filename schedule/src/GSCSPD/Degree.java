@@ -99,12 +99,13 @@ public class Degree
 	public Degree(University univ, String code, String gSchool,String name, String forecast)
 	{
 		this();
+		if(univ.findGradscool(gSchool)!= null){
 		this.code = code;
 		this.gradSchool = univ.findGradscool(gSchool);
 		this.name = name;
 		this.forecast = forecast;
 		//degreePlanReq = new ArrayList<DegreePlanReq>();
-		gradSchool.addDegree(this);
+		gradSchool.addDegree(this);}
 		
 	}
 	

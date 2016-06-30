@@ -138,14 +138,15 @@ public class DegreePlanReq
 	{
 		this();
 	//	System.out.println("*" + degreeCode + "*");
+		if(univ.findDegree(degreeCode)!=null){
 		this.degree = univ.findDegree(degreeCode);
 		this.description = description;
 		this.hours = hours;
 		this.type= type;
 		//this.course = courses;
-		System.out.println(" constrac " + degree.toString());
+		//System.out.println(" constrac " + degree.toString());
 		//setDegree(degree);
-		degree.addDegreePlanReq(this);
+		degree.addDegreePlanReq(this);}
 	}
 
 	public String toString()

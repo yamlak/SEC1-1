@@ -57,7 +57,7 @@ public class StudentCourses
 	 * 
 	 * @param grade
 	 */
-	public void setSemester(Semester semester)
+	public void setSemester(Semester semester) 
 	{
 		this.semester = semester;
 	}
@@ -85,7 +85,7 @@ public class StudentCourses
 	{
 		
 		this();
-		if(univ.findCourse(courseCode)!= null)
+		if(univ.findCourse(courseCode)!= null && univ.findStudent(sId)!= null && univ.findSemester(courseSemester) !=null)
 		{
 		this.student = univ.findStudent(sId);
 		

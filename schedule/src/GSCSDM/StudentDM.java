@@ -40,11 +40,9 @@ public class StudentDM {
 	        		//split data by comma
 		        	token = line.split(",");
 		        	
-		        	student = new Student(univ,token[0],token[1],token[2]);
+		        	student = new Student(univ,token[0],token[1],token[2]); 
 		        
-		        	univ.addStudents(student);
-		        	
-		        				        	
+		        	       				        	
 		     }    
 	        // Always close files.
 	        bufferedReader.close();            

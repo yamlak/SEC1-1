@@ -99,12 +99,12 @@ public class DegreeEdit extends JPanel {
 				}
 				if (isAdd) 
 				{
-					degree.setCode(txtDegreecode.getText());
+					degree.setCode(txtDegreecode.getText()); 
 					gradSchool.addDegree(degree);
 				}
 				
 				degree.setName(txtName.getText());
-				degree.setGradSchool((GraduateSchool)comboBox.getSelectedItem());
+				//degree.setGradSchool((GraduateSchool)comboBox.getSelectedItem());
 							
 				currentFrame.getContentPane().removeAll();
 				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
@@ -148,7 +148,7 @@ public class DegreeEdit extends JPanel {
 		//for (Entry<String, DegreePlanReq> degreePlan : gradSchool.getDegreePlans().entrySet())
 		for (DegreePlanReq degreePlan : degree.getDegreePlanReqs())
 		listModel.addElement(degreePlan);
-		System.out.println(degree.getDegreePlanReqs());
+	//	System.out.println(degree.getDegreePlanReqs());
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(326, 73, 282, 156);
 		add(scrollPane);
@@ -178,7 +178,7 @@ btnUpdate.setEnabled(false);
 btnUpdate.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
 		currentFrame.getContentPane().removeAll();
-		currentFrame.getContentPane().add(new DegreePlanList(currentFrame,univ, gradSchool));
+		currentFrame.getContentPane().add(new DegreePlanList(currentFrame,univ, gradSchool,degree,(DegreePlanReq) list.getSelectedValue(),isAdd));
 		currentFrame.getContentPane().revalidate();
 	}
 });
