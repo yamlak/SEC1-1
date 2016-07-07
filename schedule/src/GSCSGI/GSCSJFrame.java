@@ -52,7 +52,7 @@ public class GSCSJFrame extends JFrame {
 		mnMaintain.add(mntmUniversity);
 		
 		//menu item in Maintain. When clicked takes user to Degree page
-		JMenuItem mntmDegree = new JMenuItem("Degree");
+	/*	JMenuItem mntmDegree = new JMenuItem("Degree");
 		mntmDegree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
@@ -60,14 +60,14 @@ public class GSCSJFrame extends JFrame {
 				getContentPane().revalidate();
 			}
 		});
-		mnMaintain.add(mntmDegree);
+		mnMaintain.add(mntmDegree);*/
 		
 		//Menu item in Maintain. When clicked takes user to Faculty page
 		JMenuItem mntmFaculty = new JMenuItem("Faculty");
 		mntmFaculty.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getContentPane().removeAll();
-				//getContentPane().add(new FacultyListPanel(currentFrame,univ));
+				getContentPane().add(new FacultyList(currentFrame,univ));
 				getContentPane().revalidate();
 			}
 		});

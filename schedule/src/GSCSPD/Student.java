@@ -1,6 +1,7 @@
 package GSCSPD;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * A person who is studying in the university
@@ -9,7 +10,7 @@ public class Student
 {
 
 	University univ;
-	ArrayList<StudentCourses> studentCourses;
+	TreeMap<String,StudentCourses> studentCourses;
 	/**
 	 * unique identification number of the student
 	 */
@@ -66,7 +67,8 @@ public class Student
 
 	public Student()
 	{
-		studentCourses = new ArrayList<StudentCourses>(); 
+		studentCourses = new TreeMap<String, StudentCourses>();
+		//studentCourses = new ArrayList<StudentCourses>(); 
 	}
 
 	/**
@@ -84,17 +86,40 @@ public class Student
 		univ.addStudents(this);}
 	}
 	
-	public ArrayList<StudentCourses> getStudentCourses()
+	
+	public TreeMap<String, StudentCourses> getStudentCourses()
 	{
 		return this.studentCourses;
 	}
+	
 	
 	public void addStudentCourses (StudentCourses studentCourses)
 	{
 		if (studentCourses != null)
 		{
-			getStudentCourses().add(studentCourses);
+			getStudentCourses().put(studentCourses.getCourse().getNumber(), studentCourses);
 		}
+	}
+	
+	
+	public StudentCourses findStudentCourse(String studentId) {
+		
+		if(studentId.length()>0)
+		{
+			if(studentCourses.get(studentId)==null) return null;
+			else return getStudentCourses().get(studentId);
+	}
+		else return null;
+	}
+	
+public StudentCourses findStudentCourseByCourse(String courseNumber) {
+		
+		if(courseNumber.length()>0)
+		{
+			if(studentCourses.get(courseNumber)==null) return null;
+			else return getStudentCourses().get(courseNumber);
+	}
+		else return null;
 	}
 	
 	public String toString()

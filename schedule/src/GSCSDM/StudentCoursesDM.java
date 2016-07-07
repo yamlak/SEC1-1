@@ -38,8 +38,8 @@ public class StudentCoursesDM {
 	        while((line = bufferedReader.readLine()) != null) 
 	        {
 	        		//split data by comma
-		        	token = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
-		        	
+		        	token = line.split(",");
+		        //	if(univ.getStudents().get(token[0]).findStudentCourseByCourse(token[1])==null)
 		        	studentCourses = new StudentCourses(univ, token[0],token[1],token[3], token[4]);
 		        
 		        	//.addStudentCourses(studentCourses);		        	

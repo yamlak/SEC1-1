@@ -101,7 +101,7 @@ public class CourseEdit extends JPanel {
 				}
 				
 				course.setName(txtName.getText());
-				course.setCreditHours(Integer.parseInt(txtCreditHoures.getText()));
+				course.setCreditHours(txtCreditHoures.getText());
 				course.setDescription(txtDescription.getText());				
 							
 				currentFrame.getContentPane().removeAll();

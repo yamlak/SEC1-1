@@ -9,6 +9,7 @@ import javax.swing.ListSelectionModel;
 
 import GSCSPD.GraduateSchool;
 import GSCSPD.University;
+import GSCSPD.Course;
 import GSCSPD.Degree;
 import GSCSPD.DegreePlanReq;
 
@@ -35,6 +36,7 @@ public class DegreePlanList extends JPanel {
 		private JButton btnUpdate;
 		private JButton btnDelete; 
 		private DefaultListModel listModel;
+		private DefaultListModel listModelC;
 		private JTextField txtDegree;
 		private JTextField txtDescription;
 		private JTextField txtType;
@@ -46,21 +48,17 @@ public class DegreePlanList extends JPanel {
 		 
 		JLabel lblDegreeList = new JLabel("Degree Plan Requirment List");
 		lblDegreeList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 14));
-		lblDegreeList.setBounds(143, 34, 153, 30);
+		lblDegreeList.setBounds(143, 14, 250, 10);
 		add(lblDegreeList);
 		
-		
-		
-		//get all Degrees
-				listModel = new DefaultListModel();
-				for (DegreePlanReq degreePlanEntry :degree.getDegreePlanReqs())
-				listModel.addElement(degreePlanEntry);
-				JScrollPane scrollPane = new JScrollPane();
-				scrollPane.setBounds(397, 85, 175, 130);
-				add(scrollPane);
+		listModel = new DefaultListModel();
+		for (Entry<String, Course> courseEntry : univ.getCourses().entrySet())
+		listModel.addElement(courseEntry.getValue());
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(175, 266, 260, 130);
+		add(scrollPane);
 		JList list = new JList(listModel);
 		scrollPane.setViewportView(list);
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		list.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent arg0) {
 			
@@ -79,14 +77,13 @@ public class DegreePlanList extends JPanel {
 		}
 		
 		});
-	
-		//JButton
+		
 		btnUpdate = new JButton("Update");
 		btnUpdate.setEnabled(false);
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new DegreeEdit(currentFrame,univ, gradSchool,(Degree)list.getSelectedValue(),false));
+				currentFrame.getContentPane().add(new DegreeEdit(currentFrame,univ, gradSchool,degree,false));
 				currentFrame.getContentPane().revalidate();
 			}
 		});
@@ -167,37 +164,44 @@ public class DegreePlanList extends JPanel {
 		add(cbCourses);
 		 
 		
-		JButton btnSave = new JButton("Save");
-		btnSave.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (!isAdd && !degreePlan.getDegree().getCode().equals(txtDegree.getText()))
-				{
-					//degree.removeDegree(degree);
-					degreePlan.setDegree(univ.findDegree(txtDegree.getText()));
-					degree.addDegreePlanReq(degreePlan);
+	
+JButton btnSave = new JButton("Save");
+btnSave.addActionListener(new ActionListener() {
+	public void actionPerformed(ActionEvent e) {
+		if (!isAdd && !degreePlan.getDegree().getCode().equals(txtDegree.getText()))
+		{
+			//degree.removeDegree(degree);
+			degreePlan.setDegree(univ.findDegree(txtDegree.getText()));
+			degree.addDegreePlanReq(degreePlan);
+			
+		}
+		if (isAdd) 
+		{
+			degreePlan.setDegree(univ.findDegree(txtDegree.getText())); 
+			gradSchool.addDegree(degree);
+		}
+		for(int i = 0; i<list.getSelectedValuesList().size();i++)
+    	{    		//System.out.println("token length"    + "    "   +token2[i]);
+    	degreePlan.setCourses(univ.findCourse(list.getModel().getElementAt(i).toString())); 
+    	}
+			
+		degreePlan.setType(txtType.getText());
+		degreePlan.setDescriptions(txtDescription.getText());
+		degreePlan.setHours(txtHours.getText());
+		//degree.setGradSchool((GraduateSchool)comboBox.getSelectedItem());
 					
-				}
-				if (isAdd) 
-				{
-					degreePlan.setDegree(univ.findDegree(txtDegree.getText())); 
-					gradSchool.addDegree(degree);
-				}
-				degreePlan.setCourses(univ.findCourse(cbCourses.getSelectedItem().toString()));
-				degreePlan.setType(txtType.getText());
-				degreePlan.setDescriptions(txtDescription.getText());
-				//degreePlan.setHours(txtHours.getText());
-				//degree.setGradSchool((GraduateSchool)comboBox.getSelectedItem());
-							
-				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
-				currentFrame.getContentPane().revalidate();
-				currentFrame.getContentPane().removeAll();
-				currentFrame.getContentPane().add(new GradSchoolEdit(currentFrame,univ,gradSchool,isAdd));
-				currentFrame.getContentPane().revalidate();
-			}
-		});
-		btnSave.setBounds(61, 266, 89, 23);
-		add(btnSave);
+		currentFrame.getContentPane().removeAll();
+		currentFrame.getContentPane().add(new UniversityEdit(currentFrame,univ));
+		currentFrame.getContentPane().revalidate();
+		currentFrame.getContentPane().removeAll();
+		currentFrame.getContentPane().add(new GradSchoolEdit(currentFrame,univ,gradSchool,isAdd));
+		currentFrame.getContentPane().revalidate();
+	}
+});
+btnSave.setBounds(61, 266, 89, 23);
+add(btnSave);
+
+
 		
 	}
 

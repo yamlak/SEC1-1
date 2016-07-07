@@ -133,19 +133,9 @@ public class DegreeEdit extends JPanel {
 		lblDegreePlanRequirment.setBounds(372, 56, 161, 14);
 		add(lblDegreePlanRequirment);
 		
-	/*	JButton btnAdd = new JButton("Add");
-		btnAdd.setBounds(326, 237, 89, 23);
-		add(btnAdd);
-		
-		JButton btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(420, 237, 89, 23);
-		add(btnUpdate);
-		
-		JButton btnDelete = new JButton("Delete");
-		btnDelete.setBounds(519, 237, 89, 23);
-		add(btnDelete);*/
+	
 		listModel = new DefaultListModel();
-		//for (Entry<String, DegreePlanReq> degreePlan : gradSchool.getDegreePlans().entrySet())
+		
 		for (DegreePlanReq degreePlan : degree.getDegreePlanReqs())
 		listModel.addElement(degreePlan);
 	//	System.out.println(degree.getDegreePlanReqs());
@@ -191,7 +181,7 @@ btnDelete = new JButton("Delete");
 btnDelete.setEnabled(false);
 btnDelete.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent e) {
-		gradSchool.removeDegree((Degree)list.getSelectedValue());
+		degree.removeDegreePlanReq((DegreePlanReq)list.getSelectedValue());
 		listModel.removeElement(list.getSelectedValue());
 	}
 });

@@ -86,10 +86,32 @@ public class Faculty
 	{
 		this.title = title;
 	}
+	
+	
+	public ArrayList<FacultyLoad> getFacultyLoad()
+	{
+		return this.facultyLoad;
+	}
+	public void addFacultyLoad (FacultyLoad facultyLoad)
+	{
+		if (facultyLoad != null)
+		{
+			getFacultyLoad().add(facultyLoad);
+		}
+	}
+	
+	public void removeFacultyLoad(FacultyLoad facultyLoad )
+	{
+		if (facultyLoad != null)
+		{
+			getFacultyLoad().remove(facultyLoad.getFaculty());
+		}
+	}
+
 
 	public Faculty()
 	{
-		
+		facultyLoad = new ArrayList<FacultyLoad>();
 	}
 
 	/**
@@ -99,14 +121,14 @@ public class Faculty
 	 * @param title
 	 * @param daysToTeach
 	 */
-	public Faculty(GraduateSchool gradSchool, String lName, String fname, String degree, String title, String daysToTeach)
+	public Faculty(University univ, String lName, String fname, String degree, String title, String daysToTeach)
 	{	this();
 		this.lastName = lName;
 		this.firstName = fname;
 		this.degree = degree;
 		this.title = title;
 		this.daysToTeach = daysToTeach;
-		gradSchool.addFaculty(this);
+		univ.addFaculty(this);
 	}
 
 	public String getDaysToTeach()
@@ -145,6 +167,17 @@ public class Faculty
 	 * @param schedule
 	 * @param section
 	 */
+	/*public FacultyLoad maxLoad()
+	{ int min=0;
+		if(!facultyLoad.isEmpty())
+		{
+			for(FacultyLoad facultyLoad : this.facultyLoad)
+			{
+				if(facultyLoad.getHours()>min)
+					max=facultyLoad.getHours();
+			}
+		}
+	}*/
 	public void canTeachAddSection(Schedule schedule, Section section)
 	{
 		// TODO - implement Faculty.canTeachAddSection

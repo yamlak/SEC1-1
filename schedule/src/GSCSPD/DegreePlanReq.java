@@ -17,7 +17,7 @@ public class DegreePlanReq
 	/**
 	 * number of hours the course is offered
 	 */
-	private int hours;
+	private String hours;
 	/**
 	 * type of requirement
 	 */
@@ -36,7 +36,7 @@ public class DegreePlanReq
 	private String prerequisites;
 
 
-	public int getHours()
+	public String getHours()
 	{
 		return this.hours;
 	}
@@ -45,7 +45,7 @@ public class DegreePlanReq
 	 * 
 	 * @param hours
 	 */
-	public void setHours(int hours)
+	public void setHours(String hours)
 	{
 		this.hours = hours;
 	}
@@ -134,10 +134,10 @@ public class DegreePlanReq
 		course = new ArrayList<Course>();
 	}
 	
-	public DegreePlanReq(University univ, String degreeCode, String description, int hours, String type)
+	public DegreePlanReq(University univ, String degreeCode, String description, String hours, String type)
 	{
 		this();
-	//	System.out.println("*" + degreeCode + "*");
+		//	System.out.println("*" + degreeCode + "*");
 		if(univ.findDegree(degreeCode)!=null){
 		this.degree = univ.findDegree(degreeCode);
 		this.description = description;

@@ -20,6 +20,8 @@ package GSCSDM;
 		//	String fileName ="data/TestDataCourses.csv";
 			String line = null;
 			String[] token;
+			String[] fToken;
+			String[] prereqsToken;
 			Course course = new Course();
 			
 			 
@@ -42,9 +44,20 @@ package GSCSDM;
 			        	token = line.split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)", -1);
 			        			        
 			        	
-			        	course = new Course(univ, token[0],token[1],token[2], Integer.parseInt(token[3]));
+			        	course = new Course(univ, token[0],token[1],token[2], token[3],token[4],token[5],token[6],token[7]);
 			        
 			        	univ.addCourses(course);
+			        	
+			        	token[9]=token[9].replace("\"", "");
+			        	fToken= token[9].replaceAll("^\"/\'s","").split(",");
+			        	//if(token[8].contains("-"))
+			        	//System.out.println("token length"    + "    "   +token2.length);
+			        	for(int i = 0; i<fToken.length;i++)
+			        	{
+			        		if(fToken[i]!= null);
+			        		if(univ.findFaculty(fToken[i])!=null)
+			        		  	course.setFaculty(univ.findFaculty(fToken[i]));
+			        	}
 			        	
 			        				        	
 			     }    

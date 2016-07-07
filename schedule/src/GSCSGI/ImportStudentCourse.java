@@ -52,7 +52,7 @@ public class ImportStudentCourse extends JPanel {
 	        System.out.println(entry.getValue().toString());
 	        
 		
-		for (StudentCourses studentCourse : entry.getValue().getStudentCourses())
+		for (Entry<String, StudentCourses> studentCourse : entry.getValue().getStudentCourses().entrySet())
 		{
 	      //  System.out.println(studentCourse.toString());
 		
@@ -72,7 +72,7 @@ public class ImportStudentCourse extends JPanel {
 		lblImportedStudentList.setBounds(166, 11, 249, 25);
 		add(lblImportedStudentList);
 		
-		
+	//	Sections.printCourseNeeded(univ);
 		
 		
 	}

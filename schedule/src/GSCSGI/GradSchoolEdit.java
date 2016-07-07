@@ -59,7 +59,7 @@ setLayout(null);
 		
 		//Text Field that displays the name of the Abbreviation of gradSchool
 		AbbreviationtextField = new JTextField(gradSchool.getAbbreviation());
-		AbbreviationtextField.setBounds(281, 105, 334, 28);
+		AbbreviationtextField.setBounds(281, 105, 114, 28);
 		add(AbbreviationtextField);
 		AbbreviationtextField.setColumns(10);
 		
@@ -92,7 +92,7 @@ setLayout(null);
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnSave.setBounds(61, 360, 117, 29);
+		btnSave.setBounds(370, 204, 117, 29);
 		add(btnSave);
 		
 		/**
@@ -106,12 +106,12 @@ setLayout(null);
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnCancel.setBounds(335, 360, 117, 29);
+		btnCancel.setBounds(516, 204, 117, 29);
 		add(btnCancel);
 		
 		JLabel lblDegreeList = new JLabel("Degree List");
 		lblDegreeList.setFont(new Font("Georgia", Font.BOLD | Font.ITALIC, 14));
-		lblDegreeList.setBounds(395, 137, 153, 30);
+		lblDegreeList.setBounds(112, 146, 153, 30);
 		add(lblDegreeList);
 		
 		
@@ -121,29 +121,29 @@ setLayout(null);
 				for (Entry<String, Degree> degreeEntry :gradSchool.getDegrees().entrySet())
 				listModel.addElement(degreeEntry.getValue());
 				JScrollPane scrollPane = new JScrollPane();
-				scrollPane.setBounds(406, 186, 194, 128);
+				scrollPane.setBounds(52, 187, 298, 128);
 				add(scrollPane);
-		JList list = new JList(listModel);
-		scrollPane.setColumnHeaderView(list);
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		list.addListSelectionListener(new ListSelectionListener() {
-			public void valueChanged(ListSelectionEvent arg0) {
-			
-			if (list.getSelectedValue() != null ) 
-			{// System.out.println(list.getSelectedValue());
-				btnUpdate.setEnabled(true);
-			}
-			if(list.getSelectedValue() == null  )
-			{
-				btnDelete.setEnabled(false);
-			}
-			else
-			{
-			   btnDelete.setEnabled(true);
-			}
-		}
-		
-		});
+				JList list = new JList(listModel);
+				scrollPane.setViewportView(list);
+				list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				list.addListSelectionListener(new ListSelectionListener() {
+					public void valueChanged(ListSelectionEvent arg0) {
+					
+					if (list.getSelectedValue() != null ) 
+					{// System.out.println(list.getSelectedValue());
+						btnUpdate.setEnabled(true);
+					}
+					if(list.getSelectedValue() == null  )
+					{
+						btnDelete.setEnabled(false);
+					}
+					else
+					{
+					   btnDelete.setEnabled(true);
+					}
+				}
+				
+				});
 	
 		//JButton
 		btnUpdate = new JButton("Update");
@@ -155,7 +155,7 @@ setLayout(null);
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnUpdate.setBounds(178, 277, 89, 23);
+		btnUpdate.setBounds(162, 326, 89, 23);
 		add(btnUpdate);
 		btnUpdate.setEnabled(false);
 
@@ -168,7 +168,7 @@ setLayout(null);
 				listModel.removeElement(list.getSelectedValue());
 			}
 		});
-		btnDelete.setBounds(294, 273, 89, 23);
+		btnDelete.setBounds(261, 326, 89, 23);
 		add(btnDelete);
 		btnUpdate.setEnabled(false);
 		
@@ -181,7 +181,7 @@ setLayout(null);
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnAdd.setBounds(52, 275, 89, 23);
+		btnAdd.setBounds(52, 326, 89, 23);
 		add(btnAdd);
 		
 		

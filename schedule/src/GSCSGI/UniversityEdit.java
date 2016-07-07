@@ -67,15 +67,18 @@ public class UniversityEdit extends JPanel {
 		
 		//Text Field that displays the name of the University
 		textFieldAbbreviation = new JTextField(univ.getAbbreviation());
-		textFieldAbbreviation.setBounds(294, 104, 334, 28);
+		textFieldAbbreviation.setBounds(294, 104, 173, 28);
 		add(textFieldAbbreviation);
 		textFieldAbbreviation.setColumns(10);
 		
 		gradSchoolListModel = new DefaultListModel();
 		for (Entry<String, GraduateSchool> gradSchoolEntry : univ.getGradSchools().entrySet())
 		gradSchoolListModel.addElement(gradSchoolEntry.getValue());
+		JScrollPane scrollpane = new JScrollPane();
+		scrollpane.setBounds(32,192,188,111);
+		add(scrollpane, BorderLayout.CENTER);
 		JList gradSchoolList =  new JList(gradSchoolListModel);
-		gradSchoolList.setBounds(61,161,138,112);
+		scrollpane.setViewportView(gradSchoolList);
 		gradSchoolList.addListSelectionListener(new ListSelectionListener(){
 			public void valueChanged(ListSelectionEvent e) {
 				if (gradSchoolList.getSelectedValue() != null ) 
@@ -92,9 +95,6 @@ public class UniversityEdit extends JPanel {
 				}
 			}
 		});
-		JScrollPane scrollpane = new JScrollPane(gradSchoolList);
-		scrollpane.setBounds(136,170,145,133);
-		add(scrollpane, BorderLayout.CENTER);
 		
 		//gradSchoolList.setBounds(61, 161, 158, 138);
 		//add(gradSchoolList);
@@ -109,7 +109,7 @@ public class UniversityEdit extends JPanel {
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnUpdate.setBounds(120, 326, 82, 23);
+		btnUpdate.setBounds(96, 314, 82, 23);
 		btnUpdate.setEnabled(false);
 		add(btnUpdate);
 		
@@ -121,12 +121,12 @@ public class UniversityEdit extends JPanel {
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnAdd.setBounds(49, 326, 67, 23);
+		btnAdd.setBounds(20, 314, 67, 23);
 		add(btnAdd);
 		
 					 
 			JLabel lblGradSchools = new JLabel(" Grad Schools");
-			lblGradSchools.setBounds(138, 143, 82, 16);
+			lblGradSchools.setBounds(61, 165, 82, 16);
 			add(lblGradSchools);
 			
 			JLabel lblSemester = new JLabel(" Semester");
@@ -176,7 +176,7 @@ public class UniversityEdit extends JPanel {
 	    	}
 	    });
 	    btnDelete.setEnabled(false);
-		btnDelete.setBounds(203, 326, 89, 23);
+		btnDelete.setBounds(188, 314, 89, 23);
 		add(btnDelete);
 		
 		btnAdd_1 = new JButton("Add");
@@ -187,7 +187,7 @@ public class UniversityEdit extends JPanel {
 				currentFrame.getContentPane().revalidate();
 			}
 		});
-		btnAdd_1.setBounds(381, 326, 67, 23);
+		btnAdd_1.setBounds(309, 314, 67, 23);
 		add(btnAdd_1);
 		
 				
@@ -198,7 +198,7 @@ public class UniversityEdit extends JPanel {
 		semesterListModel.addElement(semesterEntry.getValue());
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(400, 161, 188, 138);
+		scrollPane.setBounds(309, 165, 248, 138);
 		add(scrollPane);
 		JList semesterList = new JList(semesterListModel);
 		scrollPane.setViewportView(semesterList);
@@ -229,7 +229,7 @@ public class UniversityEdit extends JPanel {
 			}
 		});
 		btnUpdate_1.setEnabled(false);
-		btnUpdate_1.setBounds(456, 326, 87, 23);
+		btnUpdate_1.setBounds(386, 314, 87, 23);
 		add(btnUpdate_1);
 
 		btnDelete_1 = new JButton("Delete");
@@ -240,7 +240,7 @@ public class UniversityEdit extends JPanel {
 			}
 		});
 		btnDelete_1.setEnabled(false);
-		btnDelete_1.setBounds(555, 326, 73, 23);
+		btnDelete_1.setBounds(483, 314, 73, 23);
 		add(btnDelete_1);
 	
 		

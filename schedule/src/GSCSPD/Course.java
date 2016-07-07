@@ -12,6 +12,8 @@ public class Course
 	ArrayList<Section> section;
 	ArrayList<DegreePlanReq> degreePlanReq;
 	ArrayList<StudentCourses> studentCourses;
+	ArrayList<Faculty> faculty;
+	ArrayList<Course> prerqs;
 	/**
 	 * identity number of the course
 	 */
@@ -27,7 +29,15 @@ public class Course
 	/**
 	 * number of credit hours per course
 	 */
-	private int creditHours;
+	private String creditHours;
+	
+	private String courseCap;
+	
+	private String offeredFall;
+	
+	private String offeredSpring;
+	
+	private String offeredSummer;
 
 	public String getNumber()
 	{
@@ -71,7 +81,7 @@ public class Course
 		this.description = description;
 	}
 
-	public int getCreditHours()
+	public String getCreditHours()
 	{
 		return this.creditHours;
 	}
@@ -80,22 +90,59 @@ public class Course
 	 * 
 	 * @param CreditHours
 	 */
-	public void setCreditHours(int creditHours)
+	public void setCreditHours(String creditHours)
 	{
 		this.creditHours = creditHours;
 	}
 
+	public ArrayList<Course> getPrerqsCourses()
+	{
+		return this.prerqs;
+	}
+
+	/**
+	 * 
+	 * @param coreCourse
+	 */
+	public void setPrerqsCourses(Course courses)
+	{
+		getPrerqsCourses().add(courses);
+	}
+	
+	public ArrayList<Faculty> getFaculty()
+	{
+		return this.faculty;
+	}
+
+	/**
+	 * 
+	 * @param coreCourse
+	 */
+	public void setFaculty(Faculty faculty)
+	{
+		getFaculty().add(faculty);
+	}
+	
 	public Course()
 	{
-		
+		faculty = new ArrayList<Faculty>();
+		prerqs = new ArrayList<Course>();
 	}
-	public Course(University univ, String number, String name, String description, int creditHourse)
+	
+	
+	public Course(University univ, String number, String name, String description, String creditHourse, String courseCap, String offeredFall, String offeredSpring, String offeredSummer)
 	{
 		this();
 		this.number = number;
 		this.name = name;
 		this.description = description; 
 		this.creditHours = creditHourse;
+		this.courseCap = courseCap;
+		this.offeredFall = offeredFall;
+		this.offeredSpring = offeredSpring;
+		this.offeredSummer = offeredSummer;
+	//	this.faculty = univ.findFaculty(facultyName);
+	//	this.prerqs = univ.findCourse(prerqs);
 		univ.addCourses(this);
 		
 		
@@ -105,9 +152,10 @@ public class Course
 	public String toString()
 	{
 		return getNumber()+" "
-			//	+getName()+" "
+				+getName()+" "
 			//	+getDescription()+" "
-				+getCreditHours();
+				+getCreditHours()+ " "
+				+getFaculty();
 	}
 }
 

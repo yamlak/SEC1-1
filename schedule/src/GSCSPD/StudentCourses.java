@@ -1,6 +1,7 @@
 package GSCSPD;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * courses taken by students
@@ -85,14 +86,17 @@ public class StudentCourses
 	{
 		
 		this();
-		if(univ.findCourse(courseCode)!= null && univ.findStudent(sId)!= null && univ.findSemester(courseSemester) !=null)
+		if(univ.findCourse(courseCode)!= null && univ.findStudent(sId)!= null && univ.findSemester(courseSemester) !=null&&grade!="F")
 		{
-		this.student = univ.findStudent(sId);
+			
+		//	if( student.findStudentCourseByCourse(courseCode)==null)
+		//	if(getCourse()!=univ.findCourse(courseCode))
+			{		this.student = univ.findStudent(sId);
 		
 		this.course = univ.findCourse(courseCode);
 		this.semester = univ.findSemester(courseSemester);
 		this.grade = grade;
-		student.addStudentCourses(this);}
+		student.addStudentCourses(this);}}
 	}
 
 	public String toString()

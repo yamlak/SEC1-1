@@ -1,6 +1,7 @@
 package GSCSPD;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 
 
@@ -111,6 +112,7 @@ public class Degree
 	
 
 	
+	
 	public ArrayList<DegreePlanReq> getDegreePlanReqs()
 	{
 		return this.degreePlanReq;
@@ -123,12 +125,22 @@ public class Degree
 			getDegreePlanReqs().add(degreePlan);
 		}
 	}
+	
+	public void removeDegreePlanReq(DegreePlanReq degreePlan )
+	{
+		if (degreePlan != null)
+		{
+			getDegreePlanReqs().remove(degreePlan.getDegree());
+		}
+	}
 
 	public void NumberCourseNeeded()
 	{
 		// TODO - implement Degree.NumberCourseNeeded
 		throw new UnsupportedOperationException();
 	}
+	
+	
 
 	/**
 	 * 
@@ -136,8 +148,7 @@ public class Degree
 	 */
 	public void listCourseToTake(Student student)
 	{
-		// TODO - implement Degree.listCourseToTake
-		throw new UnsupportedOperationException();
+		
 	}
 	public String toString()
 	{

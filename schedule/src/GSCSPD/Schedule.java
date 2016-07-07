@@ -1,16 +1,49 @@
 package GSCSPD;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 /**
  * giving lists of intended events and times
  */
 public class Schedule
-{/*
+{   
+//	static Section sections = new Section();
+	String name;
+	 ArrayList<Section> section;
+	
+	public ArrayList<Section> getSection()
+	{
+		return this.section;
+	}
+	public void addSection (Section section)
+	{
+		if (section != null)
+		{
+			getSection().add(section);
+		}
+	}
+	
+	public void removeSection(Section section )
+	{
+		if (section != null)
+		{
+			getSection().remove(section.getNumber());
+		}
+	}
+	
+public Schedule(){
+	 section = new ArrayList< Section>();
+	
+}
 
-	User user;
+public Schedule(String name){
+	this.name = name;
+	 section = new ArrayList< Section>();
+}
+	/*User user;
 	GraduateSchool graduateSchool;
-	ArrayList<Section> section;
+	
 	/**
 	 * a half-year term in a school or college
 	 */
@@ -172,4 +205,7 @@ public class Schedule
 		throw new UnsupportedOperationException();
 	}
 */
+	
+
+
 }

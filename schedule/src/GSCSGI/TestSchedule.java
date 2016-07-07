@@ -1,4 +1,5 @@
 package GSCSGI;
+import java.util.TreeMap;
 import java.util.Map.Entry;
 
 import GSCSDM.*;
@@ -11,12 +12,14 @@ import GSCSGI.GSCSJFrame;
 public class TestSchedule {
 public static University myUniversity;
 public static GraduateSchool gradSchool;
-public static Degree degree;
-public static Student student;
+public static Section section;
+public static Schedule schedule;
 
 	public static void main(String[] args) {
-		
+		TreeMap<String, Integer> sortedFaculty = new TreeMap<String, Integer>();
 		myUniversity = new University();
+	//	section = new Section();
+		schedule = new Schedule("Grad School Schedule");
 		
         String studentFileName = "data/STU.DUMP.csv";
 		myUniversity.openUniversity();;
@@ -27,16 +30,19 @@ public static Student student;
 		  		 
 		  SemesterDM.loadSemester(myUniversity);
 		  GradSchoolDM.loadGraduateSchool(myUniversity);
-		  //FacultyDM.loadFaculty(myUniversity); 
+		  FacultyDM.loadFaculty(myUniversity); 
 		  DegreeDM.loadDegree(myUniversity);
 		 // System.out.println(myUniversity.findGradscool("GSECS"));
 		 // System.out.println(myUniversity.findDegree("MSCS.SFTW.ENG"));
 		  CourseDM.loadCourse(myUniversity, "data/TestDataCourses.csv"); 
-		  
+		  FacultyLoadDM.FacultyLoad(myUniversity, "data/TestDataFaculty.csv");
 		  DegreePlanReqDM.loadDegreePlanReq(myUniversity, "data/TestDataDegreePlanReq.csv");
-		 // StudentDM.loadStudent(gradSchool,studentFileName);
-		 // StudentCoursesDM.loadStudentCourses(student, "data/STC.DUMP.csv");
-		  printUniversity();
+		  StudentDM.loadStudent(myUniversity,"data/STU.DUMP.csv");
+		  StudentCoursesDM.loadStudentCourses(myUniversity, "data/STC.DUMP.csv");
+		//  printUniversity();
+		  Sections.CourseNeeded(myUniversity);
+		  sortedFaculty= Sections.assignSection(myUniversity);;
+	   System.out.println(schedule.getSection());
 		  
 
 	}
@@ -86,6 +92,10 @@ public static Student student;
 		for (Entry<String, Faculty> entry : myUniversity.getFaculties().entrySet())
 		{
 	        System.out.println(entry.getValue().toString());
+	        for (FacultyLoad facultyLoad : entry.getValue().getFacultyLoad())
+	        {
+	        	System.out.println(facultyLoad);
+	        }
 		}
 		
 		
@@ -106,6 +116,11 @@ public static Student student;
 		for (Entry<String, Student> entry : myUniversity.getStudents().entrySet()) 
 		{
 	        System.out.println(entry.getValue().toString());
+	        for (Entry<String,StudentCourses> studentCourse : entry.getValue().getStudentCourses().entrySet())
+				
+			{
+		        System.out.println(studentCourse.toString());
+			}
 	        
 		}
 		

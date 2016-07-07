@@ -395,6 +395,14 @@ public class University
 		}
 		else return null;
 	}
+	public Faculty findFaculty(String lName){
+		if(lName.length()>0)
+		{ 
+			if(getFaculties().get(lName)==null) return null;
+			else return getFaculties().get(lName);
+		}
+		else return null;
+	}
 	public Semester findSemester(String semesterName){
 		if(semesterName.length()>0){
 			if(getSemesters().get(semesterName)==null) return null;
