@@ -141,6 +141,12 @@ public class GSCSJFrame extends JFrame {
 				});
 				mnMaintain.add(mntmStudentCourse);*/
 		
+		JMenu mnSchedule = new JMenu("Schedule");
+		menuBar.add(mnSchedule);
+		
+		JMenuItem mntmGenerateSchedule = new JMenuItem("Generate Schedule");
+		mnSchedule.add(mntmGenerateSchedule);
+		
 		
 		
 		//Menu for menu items

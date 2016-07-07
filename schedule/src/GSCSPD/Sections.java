@@ -17,6 +17,7 @@ public class Sections {
 
 	public static TreeMap<String,Integer> CourseNeeded(University univ)
 	{
+		
 		int c=0;  int c1=0;
 		degreePlanCourse = new ArrayList<Course>();
 		courseNeeded = new HashMap<String, Integer>();
@@ -54,7 +55,9 @@ public class Sections {
 		
 		Set<Map.Entry<String, Integer>> courseList = courseNeeded.entrySet();
 		for(Map.Entry<String, Integer> lists: courseList){
-	   // 	  System.out.println(lists.getValue()+ "   " + lists.getKey());
+			
+
+	    //	  System.out.println(lists.getValue()+ "   " + lists.getKey());
 		}
 		TreeMap<String, Integer> sortedMap = sortMapByValue(courseNeeded);
 	//	System.out.println(sortedMap.firstKey());
@@ -73,6 +76,7 @@ public class Sections {
 		}
 	public static TreeMap<String, Integer> assignFaculty(University univ, Map.Entry<String, Integer> lists)
 	{ //Schedule schedule;
+		
 //	Course course;
 	ArrayList<Faculty> faculty = new ArrayList<Faculty>();
 	TreeMap<String, Integer> sortedFaculty = new TreeMap<String, Integer>();
@@ -110,15 +114,19 @@ public class Sections {
 		TreeMap<String, Integer> sortedCourseList = new TreeMap<String, Integer>();
 		HashMap<String, Integer> sortedCourse = new HashMap<String, Integer>();
 	sortedCourseList=Sections.CourseNeeded(myuniv);
-		for(Entry<String, Integer> lists: sortedCourseList.entrySet()){ 
+	System.out.println("==============");
+	System.out.println(" List of Sections for " + myuniv.findSemester("2016FA"));
+	System.out.println("==============");
+
+			for(Entry<String, Integer> lists: sortedCourseList.entrySet()){ 
 			c++; x=0;
 			if(lists.getValue()>=30){
-//	System.out.println(printSection(myuniv,lists));
-			sortedFaculty=	assignFaculty(myuniv,lists);
+//	System.out.println());
+			sortedFaculty=	assignFaculty(myuniv,lists); 
 			for(Map.Entry<String, Integer> sFaculty : sortedFaculty.entrySet()){
 				if(x<1&& sFaculty.getValue()>0){
 					faculty= myuniv.findFaculty(sFaculty.getKey());
-					System.out.println(lists.getKey()+ " " +" Number of Student  "+  lists.getValue() + " " + faculty.getLastName());
+					System.out.println(myuniv.findSemester("2016FA")+ " " + lists.getKey()+ " "  + " " + faculty.getLastName() + "  " + "section  "+c);
 			//	System.out.println(myuniv.findSemester("2016FA")+"  "+myuniv.findFaculty(sFaculty.getKey())+ "  "  + myuniv.findCourse(lists.getKey())+" "+ "section"+ c);
 				x++;} 
 //	section = new Section(myuniv,myuniv.findSemester("2016FA"),myuniv.findFaculty(sFaculty.getKey()),myuniv.findCourse(lists.getKey()),"section"+c);
@@ -133,7 +141,7 @@ public class Sections {
 			
 			sortedCourse.put(lists.getKey(),lists.getValue()-30);
 			sortedCourseList = sortMapByValue(sortedCourse);}
-			System.out.println(lists.getKey()+" "+ lists.getValue());
+		//	System.out.println(lists.getKey()+" "+ lists.getValue());
 	}   
 		return sortedFaculty;
 	} 
